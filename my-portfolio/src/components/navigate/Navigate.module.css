@@ -1,0 +1,41 @@
+.navbar>ul {
+    display: flex;
+    flex-direction: column;
+
+    a:hover,
+    a:active {
+        color: #fff;
+    }
+
+    li.logo-wrapper>ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    li.row:not(:last-child) {
+        border-bottom: 1px solid #b1b1b1;
+    }
+
+    li.logo>a,
+    li.heading,
+    li.close-button>i {
+        color: #90A1B9;
+        margin: 2em;
+    }
+
+    li.link {
+        padding: 2em 4em;
+    }
+
+    li.logo:hover>a,
+    li.logo:active>a,
+    li.close-button>i:active,
+    li.close-button>i:hover {
+        color: #fff;
+    }
+
+    li.close-button>i {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,73 @@
+.nav {
+    padding: 1em .5em;
+}
+
+.section-title {
+    font-weight: 600;
+    margin-bottom: .5em;
+    color: #8b949e;
+}
+
+details summary {
+    cursor: pointer;
+    padding: .5em 0;
+    color: #e6edf3;
+}
+
+details[open] summary {
+    font-weight: 600;
+}
+
+details ul {
+    padding-left: 1em;
+}
+
+details ul li {
+    margin: 0.3em 0;
+    padding-left: 1em;
+}
+
+.row {
+    display: flex;
+    gap: .5em;
+}
+
+.bio i {
+    color: #FF637E;
+}
+
+.interests i {
+    color: #00D5BE;
+}
+
+.education {
+    background-color: #8b5cf6;
+}
+
+.school {
+    background-color: #6b7280;
+}
+
+.content {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #161b22;
+    border-radius: 8px;
+}
+
+.post {
+    margin-top: 1rem;
+}
+
+.user-info {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.875rem;
+}
+
+.user-info img {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}

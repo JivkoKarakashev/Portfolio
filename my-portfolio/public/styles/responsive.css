@@ -1,0 +1,13 @@
+@media screen and (max-width: 992px) {
+    .desktop {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 993px) {
+    .desktop {
+        display: flex;
+    }
+   
+}
