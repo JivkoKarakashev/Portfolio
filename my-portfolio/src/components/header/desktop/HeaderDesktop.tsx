@@ -1,29 +1,21 @@
-import { useState, type ReactElement } from "react";
+import { type ReactElement, useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import style from "./HeaderDesktop.module.css";
-
-type LinkState = 'active' | 'inactive';
-
-interface NavigationLinksState {
-    [key: string]: LinkState
-}
-
-const navLinksInitState: NavigationLinksState = {
-    _hello: 'active',
-    ['_about-me']: "inactive",
-    _projects: "inactive",
-    ['_contact-me']: "inactive"
-};
-
+import { DesktopNavLinksStatesContext } from "../../../context/DesktopNavLinks.tsx";
 
 const HeaderDesktop = (): ReactElement => {
 
-    const [navLinksState, setNavLinksState] = useState({ ...navLinksInitState });
+    const { navLinksState, setNavLinksState } = useContext(DesktopNavLinksStatesContext);
 
     const toggleActive = (e: React.MouseEvent) => {
-        console.log(e.currentTarget.textContent);
+        // console.log(e.currentTarget.textContent);
         const activetedLink = e.currentTarget.textContent || '';
+        // if (navLinksState[activetedLink] === 'active') {
+        //     console.log(navLinksState[activetedLink]);
+        //     return;
+        // }
+        // console.log('NOT HERE');
         const currState = { ...navLinksState };
         for (const key in currState) {
             // console.log(`KEY: ${key}`);
@@ -35,7 +27,7 @@ const HeaderDesktop = (): ReactElement => {
             }
         }
 
-        console.log(currState);
+        // console.log(currState);
 
         setNavLinksState((state) => ({
             ...state,
@@ -52,13 +44,13 @@ const HeaderDesktop = (): ReactElement => {
                 <nav className={style["navbar"]}>
                     <ul>
                         <li className={navLinksState._hello === 'active' ? style['active'] : undefined}>
-                            <NavLink to="/" onClick={(e) => toggleActive(e)}>_hello</NavLink>
+                            <NavLink to="/" onClick={(e) => toggleActive(e)}>&#95;hello</NavLink>
                         </li>
                         <li className={navLinksState['_about-me'] === 'active' ? style['active'] : undefined}>
-                            <NavLink to="/about-me" onClick={(e) => toggleActive(e)}>_about-me</NavLink>
+                            <NavLink to="/about-me" onClick={(e) => toggleActive(e)}>&#95;about-me</NavLink>
                         </li>
                         <li className={navLinksState['_projects'] === 'active' ? style['active'] : undefined}>
-                            <NavLink to="javascript:void(0)" onClick={(e) => toggleActive(e)}>_projects</NavLink>
+                            <NavLink to="javascript:void(0)" onClick={(e) => toggleActive(e)}>&#95;projects</NavLink>
                         </li>
                     </ul>
                 </nav>
@@ -68,7 +60,7 @@ const HeaderDesktop = (): ReactElement => {
                 <nav className={style["navbar"]}>
                     <ul>
                         <li className={navLinksState['_contact-me'] === 'active' ? style['active'] : undefined}>
-                            <NavLink to="javascript:void(0)" onClick={(e) => toggleActive(e)}>_contact-me</NavLink>
+                            <NavLink to="javascript:void(0)" onClick={(e) => toggleActive(e)}>&#95;contact-me</NavLink>
                         </li>
                     </ul>
                 </nav>

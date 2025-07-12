@@ -1,8 +1,8 @@
-import { type Variants } from "framer-motion";
+import type { Variants } from "framer-motion";
 
-export const navigateToOthersVariants: Variants = {
+const navigatePageVariants: Variants = {
     initial: {
-        y: "100vh",
+        y: "-100vh",
         opacity: 0,
         scale: .25
     },
@@ -17,9 +17,13 @@ export const navigateToOthersVariants: Variants = {
         },
     },
     exit: {
-        y: "100vh",
+        y: "-100vh",
         opacity: 0,
         scale: .25,
         transition: { when: "afterChildren", duration: 0.75, ease: "easeInOut" },
     }
 };
+
+export {
+    navigatePageVariants
+}

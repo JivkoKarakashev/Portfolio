@@ -1,12 +1,12 @@
 import { type ReactElement, useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-import { MenuStateContext } from "../../../context/ShowStateContext.tsx";
 import style from "./HeaderMobile.module.css";
+import { MobileNavMenuStatesContext } from "../../../context/MobileNavMenu";
 
 const HeaderMobile = (): ReactElement => {
 
-    const { menuState, setMenuState } = useContext(MenuStateContext);
+    const { menuState, setMenuState } = useContext(MobileNavMenuStatesContext);
     const navigate = useNavigate();
 
     const toggleMenu = (): void => {

@@ -1,0 +1,20 @@
+.nav.about-me {
+    background-color: #0F172B;
+
+    .about-me.nav-row {
+        text-indent: 1em;
+        line-height: 4em;
+    }
+
+    .nav-row {
+        i[class*="fa-caret"] {
+            align-self: center;
+            text-indent: 1em;
+        }
+    }
+}
+
+.personal-info {
+    display: flex;
+    flex-direction: column;
+}

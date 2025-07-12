@@ -1,0 +1,48 @@
+.row-wrapper {
+    background-color: #314158;
+    display: flex;
+    line-height: 3em;
+    gap: .5em;
+}
+
+.column-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+}
+
+.row {
+    width: fit-content;
+
+    .link {
+        display: flex;
+        gap: .5em;
+        cursor: pointer;
+    }
+}
+
+.column-wrapper {
+
+    i {
+        text-indent: 1em;
+        cursor: pointer;
+    }
+}
+
+
+.bio i {
+    color: #FF637E;
+}
+
+.interests i {
+    color: #00D5BE;
+}
+
+.education i {
+    color: #615FFF;
+}
+
+.school i {
+    color: #6b7280;
+}

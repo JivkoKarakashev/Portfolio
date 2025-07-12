@@ -1,16 +1,24 @@
-import { StrictMode } from 'react'
+// import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-
-import { MenuStateContextProvider } from './context/ShowStateContext.tsx'
 
 import './index.css'
 import App from './App.tsx'
+import { ComposeAppContexts } from './context/ComposeAppContexts.tsx'
+import { MobileNavMenuStatesContextProvider } from './context/MobileNavMenu.tsx'
+import { DesktopNavLinksStatesContextProvider } from './context/DesktopNavLinks.tsx'
+import { ViewModeStateContextProvider } from './context/ViewMode.tsx'
+import { AboutMeSectionsStateContextProvider } from './context/AboutMeSections.tsx'
 
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <MenuStateContextProvider>
+  // <StrictMode>
+    <ComposeAppContexts components={[
+      MobileNavMenuStatesContextProvider,
+      DesktopNavLinksStatesContextProvider,
+      ViewModeStateContextProvider,
+      AboutMeSectionsStateContextProvider
+    ]}>
       <App />
-    </MenuStateContextProvider>
-  </StrictMode>,
+    </ComposeAppContexts>
+  // </StrictMode>,
 )
