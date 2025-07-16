@@ -30,4 +30,6 @@ const HeaderMobile = (): ReactElement => {
     );
 };
 
-export default HeaderMobile
+export {
+    HeaderMobile
+} 

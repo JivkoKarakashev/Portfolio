@@ -30,4 +30,6 @@ const FooterDesktop = (): ReactElement => {
     );
 };
 
-export default FooterDesktop
+export {
+    FooterDesktop
+} 

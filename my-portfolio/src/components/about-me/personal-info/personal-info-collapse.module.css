@@ -1,4 +1,5 @@
 .row-wrapper {
+    cursor: pointer;
     background-color: #314158;
     display: flex;
     line-height: 3em;

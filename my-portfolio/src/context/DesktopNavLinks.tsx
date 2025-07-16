@@ -39,5 +39,6 @@ function DesktopNavLinksStatesContextProvider({ children }: ContextProps): React
 
 export {
     DesktopNavLinksStatesContextProvider,
-    DesktopNavLinksStatesContext
+    DesktopNavLinksStatesContext,
+    desktopNavLinksStateInit
 }

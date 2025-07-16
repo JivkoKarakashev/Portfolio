@@ -54,6 +54,7 @@ function AboutMeSectionsStateContextProvider({ children }: ContextProps): ReactE
 }
 
 export {
+    type sectionState,
     AboutMeSectionsStateContextProvider,
     AboutMeSectionsStateContext
 }

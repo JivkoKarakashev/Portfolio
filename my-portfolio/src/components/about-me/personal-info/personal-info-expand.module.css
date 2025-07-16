@@ -1,4 +1,5 @@
 .row-wrapper {
+    cursor: pointer;
     background-color: #314158;
     display: flex;
     line-height: 3em;
@@ -16,6 +17,7 @@
     width: fit-content;
 
     .link {
+        /* padding: .5em; */
         display: flex;
         gap: .5em;
         cursor: pointer;
@@ -30,19 +32,27 @@
     }
 }
 
+.folder {
+    padding: .5em;
+}
 
-.bio i {
+.link>.folder::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    -webkit-font-smoothing: antialiased;
+    content: '\f07b';
+    margin-left: .2em;
+    margin-right: .5em;
+}
+
+.folder.bio::before {
     color: #FF637E;
 }
 
-.interests i {
+.folder.interests::before {
     color: #00D5BE;
 }
 
-.education i {
-    color: #615FFF;
-}
-
-.school i {
+.folder.school::before {
     color: #6b7280;
 }

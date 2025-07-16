@@ -1,0 +1,25 @@
+.row.education {
+    max-width: fit-content;
+    cursor: pointer;
+    display: flex;
+    gap: .5em;
+    padding: 0 1em;
+}
+
+.icon::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    -webkit-font-smoothing: antialiased;
+}
+
+.icon.angle-right::before {
+    font-weight: 900;
+    content: '\f105';
+}
+
+.icon.folder::before {
+    content: '\f07b';
+    color: #615FFF;
+    margin-left: .2em;
+    margin-right: .5em;
+}

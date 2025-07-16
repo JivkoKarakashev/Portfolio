@@ -1,13 +1,13 @@
 import { type ReactElement, useContext } from "react";
+import { useLocation, useOutlet } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
 import style from "./About-me.module.css";
 import { otherPagesDesktopVariants, otherPagesMobileVariants } from "../../animations/otherPages.tsx";
 import { ViewModeStateContext } from "../../context/ViewMode.tsx";
 import { AboutMeSectionsStateContext } from "../../context/AboutMeSections.tsx";
-import { PersonalInfoExpand } from "./partials/personal-info/personal-info-expand.tsx";
-import { PersonalInfoCollapse } from "./partials/personal-info/personal-info-collapse.tsx";
-import { Outlet, useLocation } from "react-router-dom";
+import { PersonalInfoExpand } from "./personal-info/personal-info-expand.tsx";
+import { PersonalInfoCollapse } from "./personal-info/personal-info-collapse.tsx";
 
 // import { LocationPathStateContext } from "../../context/LocationPath.tsx";
 // import { Link } from "react-router-dom";
@@ -55,18 +55,15 @@ const AboutMe = (): ReactElement => {
     const { aboutMeSectionsState } = useContext(AboutMeSectionsStateContext);
     const { viewModeState } = useContext(ViewModeStateContext);
     const location = useLocation();
+    const outlet = useOutlet();
 
     return (
         <nav className={`${style["nav"]} ${style["about-me"]}`}>
             <ul>
                 <li className={`${style["about-me"]} ${style["nav-row"]}`}>&#95;about&#8210;me</li>
                 <li className={`${style["personal-info"]} ${style["nav-row"]}`}>
-                    {
-                        aboutMeSectionsState['personal-info'] === 'expand' && <PersonalInfoExpand />
-                    }
-                    {
-                        aboutMeSectionsState['personal-info'] === 'collapse' && <PersonalInfoCollapse />
-                    }
+                    {aboutMeSectionsState['personal-info'] === 'expand' && <PersonalInfoExpand />}
+                    {aboutMeSectionsState['personal-info'] === 'collapse' && <PersonalInfoCollapse />}
                 </li>
 
             </ul>
@@ -81,7 +78,7 @@ const AboutMe = (): ReactElement => {
                         exit={'exit'}
                     >
 
-                        <Outlet />
+                        {outlet}
                     </motion.div>
                 }
                 {
@@ -94,7 +91,7 @@ const AboutMe = (): ReactElement => {
                         exit={'exit'}
                     >
 
-                        <Outlet />
+                        {outlet}
                     </motion.div>}
             </AnimatePresence>
         </nav>

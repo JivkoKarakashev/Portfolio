@@ -1,0 +1,39 @@
+.row.education>.row-wrapper {
+    max-width: fit-content;
+    cursor: pointer;
+    display: flex;
+    gap: .5em;
+    padding: 0 1em;
+}
+
+.column-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+    gap: .5em;
+
+    .school>.link {
+        display: flex;
+        gap: .5em;
+        margin: 0 3em;
+        padding: .5em;
+    }
+}
+
+.icon::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    -webkit-font-smoothing: antialiased;
+}
+
+.icon.angle-down::before {
+    font-weight: 900;
+    content: '\f107';
+}
+
+.icon.folder::before {
+    content: '\f07b';
+    color: #615FFF;
+    margin-left: .2em;
+    margin-right: .5em;
+}

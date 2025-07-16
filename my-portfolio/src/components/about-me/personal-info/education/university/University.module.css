@@ -1,0 +1,25 @@
+.content {
+    background-color: #020618;
+    padding: 1em .5em;
+}
+
+.nav>ul {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.link {
+    cursor: pointer;
+    padding: .5em;
+}
+
+.nav .link-icon::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    -webkit-font-smoothing: antialiased;
+    content: '\f0c1';
+    color: #615FFF;
+    margin-left: .2em;
+    margin-right: .5em;
+}

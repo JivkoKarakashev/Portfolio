@@ -27,4 +27,6 @@ const FooterMobile = (): ReactElement => {
     );
 };
 
-export default FooterMobile
+export {
+    FooterMobile
+} 

@@ -6,12 +6,13 @@ import style from "./navigate.module.css";
 
 import { navigatePageVariants } from "../../animations/navigatePage.tsx";
 import { MobileNavMenuStatesContext } from "../../context/MobileNavMenu.tsx";
-import { DesktopNavLinksStatesContext } from "../../context/DesktopNavLinks.tsx";
+// import { DesktopNavLinksStatesContext } from "../../context/DesktopNavLinks.tsx";
+import { useNavLinkState } from "../../utils/useNavLinkState.tsx";
 // import { AppStatesContext } from "../../context/AppStatesContext.tsx";
 
 const Navigate = (): boolean | JSX.Element => {
     const { setMenuState } = useContext(MobileNavMenuStatesContext);
-    const {navLinksState, setNavLinksState  } = useContext(DesktopNavLinksStatesContext);
+    const { toggleActive } = useNavLinkState();
     const navigate = useNavigate();
 
     const onClose = (): void => {
@@ -19,33 +20,16 @@ const Navigate = (): boolean | JSX.Element => {
         navigate(-1);
     };
 
-    const toggleActive = (activetedLink: string) => {
-        // console.log(e.currentTarget.textContent);
-        const currState = { ...navLinksState };
-        for (const key in currState) {
-            // console.log(`KEY: ${key}`);
-            // console.log(`ActivatedLink: ${activetedLink}`);
-            if (key === activetedLink) {
-                currState[key] = 'active';
-            } else {
-                currState[key] = 'inactive';
-            }
-        }
-
-        // console.log(currState);
-
-        setNavLinksState((state) => ({
-            ...state,
-            ...currState
-        }));
-    };
-
-    const onNavigate = (e: React.MouseEvent) => {
+    const onNavigate = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
         const activetedLink = e.currentTarget.textContent || '';
         console.log(activetedLink);
         setMenuState('closed');
-        toggleActive(activetedLink);
+        toggleActive(e);
         switch (activetedLink) {
+            case 'jivko-karakashev': {
+                navigate('/');
+                break;
+            }
             case '_about-me': {
                 navigate('/about-me');
                 break;
@@ -68,7 +52,7 @@ const Navigate = (): boolean | JSX.Element => {
                 <li className={`${style["row"]} ${style["logo-wrapper"]}`}>
                     <ul>
                         <li className={style["logo"]}>
-                            <Link to="/">jivko-karakashev</Link>
+                            <span onClick={(e) => onNavigate(e)}>jivko-karakashev</span>
                         </li>
                         <li className={style["close-button"]}>
                             <i className="fa-regular fa-circle-xmark fa-2xl" onClick={onClose}></i>
@@ -77,12 +61,10 @@ const Navigate = (): boolean | JSX.Element => {
                 </li>
                 <li className={style["heading"]}><i className="fa-solid fa-hashtag"></i> navigate&#58;</li>
                 <li className={`${style["row"]} ${style['link']}`}>
-                    {/* <Link to="/">_hello</Link> */}
-                    <span onClick={onNavigate}>_hello</span>
+                    <span onClick={(e) => onNavigate(e)}>_hello</span>
                 </li>
                 <li className={`${style["row"]} ${style['link']}`}>
-                    {/* <Link to="/about-me">_about-me</Link> */}
-                    <span onClick={onNavigate}>_about-me</span>
+                    <span onClick={(e) => onNavigate(e)}>_about-me</span>
                 </li>
                 <li className={`${style["row"]} ${style['link']}`}>
                     <Link to="javascript:void(0)">_projects</Link>

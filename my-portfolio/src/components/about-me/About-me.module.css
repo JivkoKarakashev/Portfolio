@@ -12,6 +12,13 @@
             text-indent: 1em;
         }
     }
+
+    a:hover,
+    a:active,
+    a:focus {
+        border-radius: .5em;
+        background-color: #314158;
+    }
 }
 
 .personal-info {

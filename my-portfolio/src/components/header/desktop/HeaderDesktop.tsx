@@ -3,43 +3,18 @@ import { NavLink } from "react-router-dom";
 
 import style from "./HeaderDesktop.module.css";
 import { DesktopNavLinksStatesContext } from "../../../context/DesktopNavLinks.tsx";
+import { useNavLinkState } from "../../../utils/useNavLinkState.tsx";
 
 const HeaderDesktop = (): ReactElement => {
 
-    const { navLinksState, setNavLinksState } = useContext(DesktopNavLinksStatesContext);
-
-    const toggleActive = (e: React.MouseEvent) => {
-        // console.log(e.currentTarget.textContent);
-        const activetedLink = e.currentTarget.textContent || '';
-        // if (navLinksState[activetedLink] === 'active') {
-        //     console.log(navLinksState[activetedLink]);
-        //     return;
-        // }
-        // console.log('NOT HERE');
-        const currState = { ...navLinksState };
-        for (const key in currState) {
-            // console.log(`KEY: ${key}`);
-            // console.log(`ActivatedLink: ${activetedLink}`);
-            if (key === activetedLink) {
-                currState[key] = 'active';
-            } else {
-                currState[key] = 'inactive';
-            }
-        }
-
-        // console.log(currState);
-
-        setNavLinksState((state) => ({
-            ...state,
-            ...currState
-        }));
-    };
+    const { navLinksState } = useContext(DesktopNavLinksStatesContext);
+    const { toggleActive } = useNavLinkState();
 
     return (
         <header className={style["desktop"]}>
             <div className={style["left-wrapper"]}>
                 <section className={style["logo"]}>
-                    <NavLink to="/">jivko-karakashev</NavLink>
+                    <NavLink to="/" onClick={(e) => toggleActive(e)}>jivko-karakashev</NavLink>
                 </section>
                 <nav className={style["navbar"]}>
                     <ul>
@@ -69,4 +44,6 @@ const HeaderDesktop = (): ReactElement => {
     );
 };
 
-export default HeaderDesktop
+export {
+    HeaderDesktop
+}
