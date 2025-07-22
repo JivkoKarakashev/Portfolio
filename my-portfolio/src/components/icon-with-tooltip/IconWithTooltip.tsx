@@ -26,6 +26,10 @@ const tooltipTypes: TooltipType = {
         id: 'typescript',
         content: 'TypeScript',
     },
+    rxjs: {
+        id: 'rxjs',
+        content: 'RxJS',
+    },
     html: {
         id: 'html',
         content: 'HTML5'
@@ -66,7 +70,7 @@ const tooltipTypes: TooltipType = {
         id: 'react',
         content: 'React'
     },
-    javascript : {
+    javascript: {
         id: 'javascript',
         content: 'JavaScript '
     },
@@ -85,6 +89,26 @@ const tooltipTypes: TooltipType = {
     mongoosejs: {
         id: 'mongoosejs',
         content: 'Mongoose'
+    },
+    handlebars: {
+        id: 'handlebars',
+        content: 'Handlebars'
+    },
+    'json-web-tokens': {
+        id: 'json-web-tokens',
+        content: 'JSON Web Tokens (JWT)'
+    },
+    nodemon: {
+        id: 'nodemon',
+        content: 'Nodemon'
+    },
+    'lit-html': {
+        id: 'lit-html',
+        content: 'lit-HTML'
+    },
+    playwright: {
+        id: 'playwright',
+        content: 'Playwright'
     },
 }
 
