@@ -110,6 +110,14 @@ const tooltipTypes: TooltipType = {
         id: 'playwright',
         content: 'Playwright'
     },
+    mocha: {
+        id: 'mocha',
+        content: 'Mocha'
+    },
+    chai: {
+        id: 'chai',
+        content: 'Chai'
+    },
 }
 
 const TooltipComposer = ({ id, place = 'top', content, children }: TooltipWithProps): ReactNode => {
