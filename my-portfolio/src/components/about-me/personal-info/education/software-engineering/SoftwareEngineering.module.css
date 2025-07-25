@@ -17,30 +17,3 @@
     cursor: pointer;
     padding: .5em;
 }
-
-/* span[class*="-icon-container"] {
-    display: flex;
-    align-items: center;
-    height: 1.5em;
-    width: auto;
-}
-
-svg[class*="-icon"] {
-    display: block;
-    height: 100%;
-    width: auto;
-}
-
-.github-icon {
-    margin-left: .2em;
-    margin-right: .7em;
-}
-
-svg.font-awesome-icon {
-    color: #538dd7;
-}
-
-.expressjs-icon,
-.handlebars-icon {
-    background-color: #314158;
-} */

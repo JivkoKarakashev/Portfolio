@@ -8,6 +8,7 @@ import { MobileNavMenuStatesContextProvider } from './context/MobileNavMenu.tsx'
 import { DesktopNavLinksStatesContextProvider } from './context/DesktopNavLinks.tsx'
 import { ViewModeStateContextProvider } from './context/ViewMode.tsx'
 import { AboutMeSectionsStateContextProvider } from './context/AboutMeSections.tsx'
+import { ContactMeSectionsStateContextProvider } from './context/ContactMeSections.tsx'
 
 
 createRoot(document.getElementById('root')!).render(
@@ -16,7 +17,8 @@ createRoot(document.getElementById('root')!).render(
       MobileNavMenuStatesContextProvider,
       DesktopNavLinksStatesContextProvider,
       ViewModeStateContextProvider,
-      AboutMeSectionsStateContextProvider
+      AboutMeSectionsStateContextProvider,
+      ContactMeSectionsStateContextProvider
     ]}>
       <App />
     </ComposeAppContexts>

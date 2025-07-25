@@ -1,0 +1,27 @@
+.row-wrapper {
+    cursor: pointer;
+    background-color: #314158;
+    display: flex;
+    line-height: 3em;
+    gap: .5em;
+}
+
+.column-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+}
+
+.row {
+    width: fit-content;
+
+    .link {
+        padding: .5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5em;
+        cursor: pointer;
+    }
+}

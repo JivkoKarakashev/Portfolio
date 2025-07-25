@@ -1,7 +1,7 @@
-.nav.about-me {
+.nav.contact-me {
     background-color: #0F172B;
 
-    .about-me.nav-row {
+    .contact-me.nav-row {
         text-indent: 1em;
         line-height: 4em;
     }
@@ -21,14 +21,14 @@
     }
 }
 
-.nav.about-me>ul {
+.nav.contact-me>ul {
     display: flex;
     flex-direction: column;
     gap: .3em;
 }
 
-.personal-info,
-.hobbies {
+.contacts,
+.find-me-also-in {
     display: flex;
     flex-direction: column;
 }

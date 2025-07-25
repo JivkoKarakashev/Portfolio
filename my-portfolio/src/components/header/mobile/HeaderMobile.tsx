@@ -2,10 +2,12 @@ import { type ReactElement, useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import style from "./HeaderMobile.module.css";
-import { MobileNavMenuStatesContext } from "../../../context/MobileNavMenu";
+import { MobileNavMenuStatesContext } from "../../../context/MobileNavMenu.tsx";
+import { useNavLinkState } from "../../../utils/useNavLinkState.tsx";
 
 const HeaderMobile = (): ReactElement => {
 
+    const { toggleActive } = useNavLinkState();
     const { menuState, setMenuState } = useContext(MobileNavMenuStatesContext);
     const navigate = useNavigate();
 
@@ -20,8 +22,8 @@ const HeaderMobile = (): ReactElement => {
 
     return (
         <header className={style["mobile"]}>
-            <NavLink to='/'>
-                <span className={`${style["logo"]} ${style["link"]}`}>jivko-karakashev</span>
+            <NavLink to='/' onClick={toggleActive}>
+                <span className={`${style["logo"]} ${style["link"]}`}>jivko&#45;karakashev</span>
             </NavLink>
             <div className={style["menu-icon"]} onClick={toggleMenu}>
                 <i className={`fa-solid fa-bars fa-xl ${style["link"]}`}></i>

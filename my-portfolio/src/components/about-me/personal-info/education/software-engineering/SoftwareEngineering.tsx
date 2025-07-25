@@ -108,7 +108,7 @@ const SoftwareEngineering = (): ReactElement => {
                     </Link>
                     <Link to="https://github.com/JivkoKarakashev/SoftUni-Education/tree/main/Javascript-Back-End-September-2023" target="new_blank">
                         <li className={style["link"]}>
-                            <SvgIconProvider iconName='github' textContent='Javascript Back&#8209;End' />
+                            <SvgIconProvider iconName='github' textContent='Javascript Back&#45;End' />
                             <TooltipComposer id={tooltipTypes.javascript.id} content={tooltipTypes.javascript.content} children={
                                 <SvgIconProvider iconName='javascript' tooltipProps={{ key: 'javascript', "data-tooltip-id": 'javascript' }} />
                             } />
@@ -165,21 +165,60 @@ const SoftwareEngineering = (): ReactElement => {
                             <TooltipComposer id={tooltipTypes.chai.id} content={tooltipTypes.chai.content} children={
                                 <SvgIconProvider iconName='chai' tooltipProps={{ key: 'chai', "data-tooltip-id": 'chai' }} />
                             } />
+                            <TooltipComposer id={tooltipTypes.git.id} content={tooltipTypes.git.content} children={
+                                <SvgIconProvider iconName='git' tooltipProps={{ key: 'git', "data-tooltip-id": 'git' }} />
+                            } />
+                            <TooltipComposer id={tooltipTypes['vs-code'].id} content={tooltipTypes['vs-code'].content} children={
+                                <SvgIconProvider iconName='vs-code' tooltipProps={{ key: 'vs-code', "data-tooltip-id": 'vs-code' }} />
+                            } />
                         </li>
                     </Link>
                     <Link to="https://github.com/JivkoKarakashev/SoftUni-Education/tree/main/Javascript-Advanced-May-2023" target="new_blank">
                         <li className={style["link"]}>
                             <SvgIconProvider iconName='github' textContent='Javascript Advanced' />
+                            <TooltipComposer id={tooltipTypes.javascript.id} content={tooltipTypes.javascript.content} children={
+                                <SvgIconProvider iconName='javascript' tooltipProps={{ key: 'javascript', "data-tooltip-id": 'javascript' }} />
+                            } />
+                            <TooltipComposer id={tooltipTypes.mocha.id} content={tooltipTypes.mocha.content} children={
+                                <SvgIconProvider iconName='mocha' tooltipProps={{ key: 'mocha', "data-tooltip-id": 'mocha' }} />
+                            } />
+                            <TooltipComposer id={tooltipTypes.chai.id} content={tooltipTypes.chai.content} children={
+                                <SvgIconProvider iconName='chai' tooltipProps={{ key: 'chai', "data-tooltip-id": 'chai' }} />
+                            } />
+                            <TooltipComposer id={tooltipTypes.git.id} content={tooltipTypes.git.content} children={
+                                <SvgIconProvider iconName='git' tooltipProps={{ key: 'git', "data-tooltip-id": 'git' }} />
+                            } />
+                            <TooltipComposer id={tooltipTypes['vs-code'].id} content={tooltipTypes['vs-code'].content} children={
+                                <SvgIconProvider iconName='vs-code' tooltipProps={{ key: 'vs-code', "data-tooltip-id": 'vs-code' }} />
+                            } />
                         </li>
                     </Link>
                     <Link to="https://github.com/JivkoKarakashev/SoftUni-Education/tree/main/Programming-Fundamentals-January-2023" target="new_blank">
                         <li className={style["link"]}>
                             <SvgIconProvider iconName='github' textContent='Programming Fundamentals with Javascript' />
+                            <TooltipComposer id={tooltipTypes.javascript.id} content={tooltipTypes.javascript.content} children={
+                                <SvgIconProvider iconName='javascript' tooltipProps={{ key: 'javascript', "data-tooltip-id": 'javascript' }} />
+                            } />
+                            <TooltipComposer id={tooltipTypes.git.id} content={tooltipTypes.git.content} children={
+                                <SvgIconProvider iconName='git' tooltipProps={{ key: 'git', "data-tooltip-id": 'git' }} />
+                            } />
+                            <TooltipComposer id={tooltipTypes['vs-code'].id} content={tooltipTypes['vs-code'].content} children={
+                                <SvgIconProvider iconName='vs-code' tooltipProps={{ key: 'vs-code', "data-tooltip-id": 'vs-code' }} />
+                            } />
                         </li>
                     </Link>
                     <Link to="https://github.com/JivkoKarakashev/SoftUni-Education/tree/main/Programming-Basics-November-2022" target="new_blank">
                         <li className={style["link"]}>
                             <SvgIconProvider iconName='github' textContent='Programming Basics with JavaScript' />
+                            <TooltipComposer id={tooltipTypes.javascript.id} content={tooltipTypes.javascript.content} children={
+                                <SvgIconProvider iconName='javascript' tooltipProps={{ key: 'javascript', "data-tooltip-id": 'javascript' }} />
+                            } />
+                            <TooltipComposer id={tooltipTypes.git.id} content={tooltipTypes.git.content} children={
+                                <SvgIconProvider iconName='git' tooltipProps={{ key: 'git', "data-tooltip-id": 'git' }} />
+                            } />
+                            <TooltipComposer id={tooltipTypes['vs-code'].id} content={tooltipTypes['vs-code'].content} children={
+                                <SvgIconProvider iconName='vs-code' tooltipProps={{ key: 'vs-code', "data-tooltip-id": 'vs-code' }} />
+                            } />
                         </li>
                     </Link>
                 </ul>

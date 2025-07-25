@@ -1,4 +1,4 @@
-import { createContext, useState, type Dispatch, type ReactElement, type SetStateAction, useContext } from "react";
+import { createContext, useState, type Dispatch, type ReactElement, type SetStateAction } from "react";
 
 import type { ContextProps } from "./ComposeAppContexts.tsx";
 
@@ -23,7 +23,7 @@ interface AboutMeSectionsStateInterface {
 
 const aboutMeSectionsStateInterfaceInit: AboutMeSectionsStateInterface = {
     aboutMeSectionsState: { ...aboutMeSectionsStateInit } as AboutMeSectionsState,
-    setAboutMeSectionsState: (state: AboutMeSectionsState) => { },
+    setAboutMeSectionsState: (_state: AboutMeSectionsState) => { },
     toggleSectionState: () => { }
 } as AboutMeSectionsStateInterface;
 
@@ -34,12 +34,16 @@ function AboutMeSectionsStateContextProvider({ children }: ContextProps): ReactE
 
     const toggleSectionState = (section: string) => {
         console.log(section);
+        const newSectionsState = { ...aboutMeSectionsState };
+        const oldState = newSectionsState[section];
+        oldState === 'collapse' ? newSectionsState[section] = 'expand' : newSectionsState[section] = 'collapse';
 
         switch (section) {
             case 'personal-info': {
-                const newSectionsState = { ...aboutMeSectionsState };
-                const oldState = newSectionsState[section];
-                oldState === 'collapse' ? newSectionsState[section] = 'expand' : newSectionsState[section] = 'collapse';
+                setAboutMeSectionsState({ ...newSectionsState });
+                break;
+            }
+            case 'hobbies': {
                 setAboutMeSectionsState({ ...newSectionsState });
                 break;
             }

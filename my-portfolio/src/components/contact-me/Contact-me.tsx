@@ -2,19 +2,19 @@ import { type ReactElement, useContext } from "react";
 import { useLocation, useOutlet } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
-import style from "./About-me.module.css";
+import style from "./Contact-me.module.css";
 import { otherPagesDesktopVariants, otherPagesMobileVariants } from "../../animations/otherPages.tsx";
 import { ViewModeStateContext } from "../../context/ViewMode.tsx";
-import { AboutMeSectionsStateContext } from "../../context/AboutMeSections.tsx";
-import { PersonalInfoExpand } from "./personal-info/personal-info-expand.tsx";
-import { PersonalInfoCollapse } from "./personal-info/personal-info-collapse.tsx";
-import { HobbiesExpand } from "./hobbies/Hobbies-expand.tsx";
-import { HobbiesCollapse } from "./hobbies/Hobbies-collapse.tsx";
+import { ContactMeSectionsStateContext } from "../../context/ContactMeSections.tsx";
+import { ContactsExpand } from "./contacts/Contacts-expand.tsx";
+import { ContactsCollapse } from "./contacts/Contacts-collapse.tsx";
+import { FindMeAlsoInExpand } from "./find-me-also-in/Find-me-also-in-expand.tsx";
+import { FindMeAlsoInCollapse } from "./find-me-also-in/Find-me-also-in-collapse.tsx";
 
 // import { LocationPathStateContext } from "../../context/LocationPath.tsx";
 // import { Link } from "react-router-dom";
 
-const AnimatedAboutMe = () => {
+const AnimatedContactMe = () => {
     console.log('Inital Render');
     const { viewModeState } = useContext(ViewModeStateContext);
     // const { currPath, prevPath } = useContext(LocationPathStateContext);
@@ -35,7 +35,7 @@ const AnimatedAboutMe = () => {
                 animate={"final"}
                 exit={"exit"}
             >
-                <AboutMe />
+                <ContactMe />
             </motion.div>
         );
     } else if (viewModeState === 'desktop') {
@@ -46,30 +46,30 @@ const AnimatedAboutMe = () => {
                 animate={"final"}
                 exit={"exit"}
             >
-                <AboutMe />
+                <ContactMe />
             </motion.div>
         );
     }
 };
 
-const AboutMe = (): ReactElement => {
+const ContactMe = (): ReactElement => {
 
-    const { aboutMeSectionsState } = useContext(AboutMeSectionsStateContext);
+    const { contactMeSectionsState } = useContext(ContactMeSectionsStateContext);
     const { viewModeState } = useContext(ViewModeStateContext);
     const location = useLocation();
     const outlet = useOutlet();
 
     return (
-        <nav className={`${style["nav"]} ${style["about-me"]}`}>
+        <nav className={`${style["nav"]} ${style["contact-me"]}`}>
             <ul>
-                <li className={`${style["about-me"]} ${style["nav-row"]}`}>&#95;about&#8210;me</li>
-                <li className={`${style["personal-info"]} ${style["nav-row"]}`}>
-                    {aboutMeSectionsState['personal-info'] === 'expand' && <PersonalInfoExpand />}
-                    {aboutMeSectionsState['personal-info'] === 'collapse' && <PersonalInfoCollapse />}
+                <li className={`${style["contact-me"]} ${style["nav-row"]}`}>&#95;contact&#8210;me</li>
+                <li className={`${style["contacts"]} ${style["nav-row"]}`}>
+                    {contactMeSectionsState.contacts === 'expand' && <ContactsExpand />}
+                    {contactMeSectionsState.contacts === 'collapse' && <ContactsCollapse />}
                 </li>
-                <li className={`${style["hobbies"]} ${style["nav-row"]}`}>
-                    {aboutMeSectionsState['hobbies'] === 'expand' && <HobbiesExpand />}
-                    {aboutMeSectionsState['hobbies'] === 'collapse' && <HobbiesCollapse />}
+                <li className={`${style["find-me-also-in"]} ${style["nav-row"]}`}>
+                    {contactMeSectionsState['find-me-also-in'] === 'expand' && <FindMeAlsoInExpand />}
+                    {contactMeSectionsState['find-me-also-in'] === 'collapse' && <FindMeAlsoInCollapse />}
                 </li>
 
             </ul>
@@ -104,4 +104,4 @@ const AboutMe = (): ReactElement => {
     );
 };
 
-export default AnimatedAboutMe
+export default AnimatedContactMe

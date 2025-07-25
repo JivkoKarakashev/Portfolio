@@ -14,7 +14,7 @@ const HeaderDesktop = (): ReactElement => {
         <header className={style["desktop"]}>
             <div className={style["left-wrapper"]}>
                 <section className={style["logo"]}>
-                    <NavLink to="/" onClick={(e) => toggleActive(e)}>jivko-karakashev</NavLink>
+                    <NavLink to="/" onClick={(e) => toggleActive(e)}>jivko&#45;karakashev</NavLink>
                 </section>
                 <nav className={style["navbar"]}>
                     <ul>
@@ -22,7 +22,7 @@ const HeaderDesktop = (): ReactElement => {
                             <NavLink to="/" onClick={(e) => toggleActive(e)}>&#95;hello</NavLink>
                         </li>
                         <li className={navLinksState['_about-me'] === 'active' ? style['active'] : undefined}>
-                            <NavLink to="/about-me" onClick={(e) => toggleActive(e)}>&#95;about-me</NavLink>
+                            <NavLink to="/about-me" onClick={(e) => toggleActive(e)}>&#95;about&#45;me</NavLink>
                         </li>
                         <li className={navLinksState['_projects'] === 'active' ? style['active'] : undefined}>
                             <NavLink to="javascript:void(0)" onClick={(e) => toggleActive(e)}>&#95;projects</NavLink>
@@ -35,7 +35,7 @@ const HeaderDesktop = (): ReactElement => {
                 <nav className={style["navbar"]}>
                     <ul>
                         <li className={navLinksState['_contact-me'] === 'active' ? style['active'] : undefined}>
-                            <NavLink to="javascript:void(0)" onClick={(e) => toggleActive(e)}>&#95;contact-me</NavLink>
+                            <NavLink to="/contact-me" onClick={(e) => toggleActive(e)}>&#95;contact&#45;me</NavLink>
                         </li>
                     </ul>
                 </nav>

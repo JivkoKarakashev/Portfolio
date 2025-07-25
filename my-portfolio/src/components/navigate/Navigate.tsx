@@ -22,7 +22,7 @@ const Navigate = (): boolean | JSX.Element => {
 
     const onNavigate = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
         const activetedLink = e.currentTarget.textContent || '';
-        console.log(activetedLink);
+        // console.log(activetedLink);
         setMenuState('closed');
         toggleActive(e);
         switch (activetedLink) {
@@ -36,6 +36,10 @@ const Navigate = (): boolean | JSX.Element => {
             }
             case '_hello': {
                 navigate('/');
+                break;
+            }
+            case '_contact-me': {
+                navigate('/contact-me');
                 break;
             }
         }
@@ -52,7 +56,7 @@ const Navigate = (): boolean | JSX.Element => {
                 <li className={`${style["row"]} ${style["logo-wrapper"]}`}>
                     <ul>
                         <li className={style["logo"]}>
-                            <span onClick={(e) => onNavigate(e)}>jivko-karakashev</span>
+                            <span onClick={(e) => onNavigate(e)}>jivko&#45;karakashev</span>
                         </li>
                         <li className={style["close-button"]}>
                             <i className="fa-regular fa-circle-xmark fa-2xl" onClick={onClose}></i>
@@ -61,16 +65,16 @@ const Navigate = (): boolean | JSX.Element => {
                 </li>
                 <li className={style["heading"]}><i className="fa-solid fa-hashtag"></i> navigate&#58;</li>
                 <li className={`${style["row"]} ${style['link']}`}>
-                    <span onClick={(e) => onNavigate(e)}>_hello</span>
+                    <span onClick={(e) => onNavigate(e)}>&#95;hello</span>
                 </li>
                 <li className={`${style["row"]} ${style['link']}`}>
-                    <span onClick={(e) => onNavigate(e)}>_about-me</span>
+                    <span onClick={(e) => onNavigate(e)}>&#95;about&#45;me</span>
                 </li>
                 <li className={`${style["row"]} ${style['link']}`}>
-                    <Link to="javascript:void(0)">_projects</Link>
+                    <Link to="javascript:void(0)">&#95;projects</Link>
                 </li>
                 <li className={`${style["row"]} ${style['link']}`}>
-                    <Link to="javascript:void(0)">_contact-me</Link>
+                    <span onClick={(e) => onNavigate(e)}>&#95;contact&#45;me</span>
                 </li>
             </ul>
         </motion.nav>

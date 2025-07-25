@@ -11,7 +11,7 @@ const PersonalInfoCollapse = () => {
         <>
             <ul className={style["row-wrapper"]} onClick={() => toggleSectionState('personal-info')}>
                 <i className="fa-solid fa-caret-right"></i>
-                personal&#8210;info
+                personal&#45;info
             </ul>
         </>
     );

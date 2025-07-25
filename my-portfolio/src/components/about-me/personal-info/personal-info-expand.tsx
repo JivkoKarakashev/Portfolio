@@ -27,7 +27,7 @@ const PersonalInfoExpand = () => {
         <>
             <ul className={style["row-wrapper"]} onClick={() => toggleSectionState('personal-info')}>
                 <i className="fa-solid fa-caret-down"></i>
-                <span>personal&#8210;info</span>
+                <span>personal&#45;info</span>
             </ul>
             <ul className={style["column-wrapper"]}>
                 <li className={`${style["row"]} ${style["bio"]}`}>

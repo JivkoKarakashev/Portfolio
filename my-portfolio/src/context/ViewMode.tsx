@@ -17,7 +17,7 @@ const ViewModeStateContext = createContext<ViewModeStateInterface>(viewModeState
 
 function ViewModeStateContextProvider({ children }: ContextProps): ReactElement {
     const isMobileView = useMediaQuery('(max-width: 1099px)');
-    console.log(isMobileView);
+    // console.log(isMobileView);
     const viewModeState: ViewModeState = isMobileView ? 'mobile' : 'desktop';
 
     return (
