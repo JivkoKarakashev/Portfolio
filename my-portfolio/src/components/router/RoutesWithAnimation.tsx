@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
@@ -16,10 +17,15 @@ import { Lifehacks } from "../about-me/hobbies/lifehacks/Lifehacks.tsx";
 import { Unwind } from "../about-me/hobbies/unwind/Unwind.tsx";
 import { Movies } from "../about-me/hobbies/movies/Movies.tsx";
 import { Conversations } from "../about-me/hobbies/conversations/Conversations.tsx";
+import { ThankYou } from "../contact-me/thank-you/Thank-you.tsx";
+import { ViewModeStateContext } from "../../context/ViewMode.tsx";
+import { MailMeMobile } from "../contact-me/contacts/mail-me/mobile/Mail-me-mobile.tsx";
+import { MailMeDesktop } from "../contact-me/contacts/mail-me/desktop/Mail-me-desktop.tsx";
 
 const RoutesWithAnimation = () => {
     const location = useLocation();
     // console.log(location);
+    const { viewModeState } = useContext(ViewModeStateContext);
     const topLevelKey = '/'.concat(location.pathname.split('/')[1]);
     // console.log(topLevelKey);
 
@@ -40,7 +46,11 @@ const RoutesWithAnimation = () => {
                         <Route path="hobbies/movies" element={<Movies />} />
                         <Route path="hobbies/conversations" element={<Conversations />} />
                     </Route>
-                    <Route path="/contact-me" element={<AnimatedContactMe />} />
+                    <Route path="/contact-me" element={<AnimatedContactMe />} >
+                        {viewModeState === 'mobile' && <Route path="mail-me" element={<MailMeMobile />} />}
+                        {viewModeState === 'desktop' && <Route path="mail-me" element={<MailMeDesktop />} />}
+                        <Route path="thank-you" element={<ThankYou />} />
+                    </Route>
                 </Routes>
             </AnimatePresence>
         </LocationPathStateContextProvider>

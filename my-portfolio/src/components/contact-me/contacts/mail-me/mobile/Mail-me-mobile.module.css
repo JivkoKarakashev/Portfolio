@@ -1,0 +1,54 @@
+.content>.form,
+.form>div[class*='-wrapper'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    gap: 2em;
+    padding: 2em;
+}
+
+div[class*='-wrapper'] {
+    gap: 1em;
+}
+
+label,
+input,
+textarea {
+    color: #90A1B9;
+}
+
+label+input,
+label+textarea {
+    padding: 0 1em;
+    background-color: #020618;
+    border-radius: .5em;
+    line-height: 2em;
+}
+
+.button {
+    cursor: pointer;
+    padding: 1em;
+    border-radius: .5em;
+    max-width: fit-content;
+}
+
+.button.disabled {
+    pointer-events: none;
+    background-color: #314158;
+}
+
+.button.enabled {
+    background-color: #FFD6A7;
+    color: #020618;
+}
+
+.error-text {
+    color: #FB2C36;
+}
+
+.error-field {
+    background-color: #1F1221;
+    border-color: #FB2C36;
+}

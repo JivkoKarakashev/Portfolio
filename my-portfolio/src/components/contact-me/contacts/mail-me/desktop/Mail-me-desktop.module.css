@@ -1,0 +1,113 @@
+.content {
+    display: flex;
+
+    .left-wrapper,
+    .right-wrapper {
+        flex: 1 1 50%;
+    }
+}
+
+.code-section code {
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+
+    .row-snippet {
+        line-height: 1.2em;
+    }
+}
+
+.content>.form,
+.form>div[class*='-wrapper'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 2em;
+}
+
+div[class*='-wrapper'] {
+    gap: 1em;
+}
+
+label,
+input,
+textarea {
+    color: #90A1B9;
+}
+
+label+input,
+label+textarea {
+    padding: 0 1em;
+    background-color: #020618;
+    border-radius: .5em;
+    line-height: 2em;
+}
+
+.button {
+    cursor: pointer;
+    padding: 1em;
+    border-radius: .5em;
+    max-width: fit-content;
+}
+
+.button.disabled {
+    pointer-events: none;
+    background-color: #314158;
+}
+
+.button.enabled {
+    background-color: #FFD6A7;
+    color: #020618;
+}
+
+.error-text {
+    color: #FB2C36;
+}
+
+.error-field {
+    background-color: #1F1221;
+    border-color: #FB2C36;
+}
+
+.keyword {
+    color: #615FFF;
+}
+
+.variable {
+    color: #00D5BE;
+}
+
+.variable.padding {
+    padding-left: 2.2em;
+}
+
+.string {
+    color: #E1909C;
+}
+
+.method {
+    color: #DDDCAB;
+}
+
+.prop {
+    padding-left: 2.2em;
+    color: #82DEFF;
+}
+
+.bracket,
+.parenthesis {
+    color: #F1D510;
+}
+
+.row-number {
+    display: inline-block;
+    min-width: 5%;
+    text-align: right;
+    padding-right: 1em;
+    color: #788585;
+}

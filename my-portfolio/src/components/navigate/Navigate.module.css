@@ -17,6 +17,10 @@
         cursor: pointer;
     }
 
+    li.row:nth-child(3) {
+        border-top: 1px solid #b1b1b1;
+    }
+
     li.row:not(:last-child) {
         border-bottom: 1px solid #b1b1b1;
     }
