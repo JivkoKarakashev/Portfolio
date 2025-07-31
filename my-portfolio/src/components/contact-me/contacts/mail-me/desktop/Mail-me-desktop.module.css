@@ -40,12 +40,29 @@ textarea {
     color: #90A1B9;
 }
 
-label+input,
+/* label+input,
 label+textarea {
     padding: 0 1em;
     background-color: #020618;
     border-radius: .5em;
     line-height: 2em;
+} */
+
+.input-wrapper {
+    /* padding: 0 1em; */
+    position: relative;
+    background-color: #020618;
+    border-radius: .5em;
+    line-height: 2em;
+
+    input,
+    textarea {
+        background-color: #020618;
+        min-width: 100%;
+        padding: 0 1em;
+        border-radius: .5em;
+        line-height: 2em;
+    }
 }
 
 .button {
@@ -65,13 +82,40 @@ label+textarea {
     color: #020618;
 }
 
-.error-text {
+.error-text,
+.exclamation {
     color: #FB2C36;
 }
 
-.error-field {
+.check {
+    color: #15f00e;
+}
+
+input.error-field {
     background-color: #1F1221;
     border-color: #FB2C36;
+}
+
+.exclamation,
+.check {
+    position: absolute;
+    right: .5em;
+}
+
+.icon {
+    position: absolute;
+    right: .5em;
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    -webkit-font-smoothing: antialiased;
+}
+
+.exclamation::after {
+    content: '\f06a';
+}
+
+.check::after {
+    content: '\f058';
 }
 
 .keyword {
