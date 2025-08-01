@@ -62,7 +62,8 @@ textarea {
     color: #15f00e;
 }
 
-input.error-field {
+input.error-field,
+textarea.error-field {
     background-color: #1F1221;
     border-color: #FB2C36;
 }

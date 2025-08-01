@@ -1,10 +1,12 @@
 import { useState, type ReactElement, type ChangeEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 import * as emailjs from '@emailjs/browser';
 import type { Options } from "@emailjs/browser/es/types/Options";
 
 import style from './Mail-me-desktop.module.css';
 import { trimFormFields, type FormFields } from "../../../../../utils/trimFormFields.tsx";
+import { getFormatedDate, isFormFieldValid } from "../../../../../utils/formValidators.tsx";
 
 type FieldType = 'name' | 'email' | 'message';
 type FieldState = 'initial' | 'valid' | 'invalid';
@@ -34,32 +36,18 @@ const MailMeDesktop = (): ReactElement => {
         return () => { };
     }, []);
 
-    const getFormatedDate = (): string => {
-        const today = new Date();
-        return today.toLocaleDateString('en-GB', {
-            weekday: 'short',
-            day: '2-digit',
-            month: 'short',
-        });
-    };
-
-
-    const isEmailValid = (email: string): boolean => {
-        // const validEmail = new RegExp('^[a-z0-9]+([._-]?[a-z0-9]+)+@[a-z0-9]+([._-]?[a-z0-9]+)+\\.[a-z]{2,3}$');
-        const validEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/g;
-        return validEmail.test(email);
-    };
-
     const handleInputChange = (field: FieldType, e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         // console.log(field);
         const value = e.target.value;
+        const isValid = isFormFieldValid(field, value);
 
         switch (field) {
             case 'name': {
                 setName(value);
-                if (!value) {
+                if (!value || !isValid) {
                     setNameFieldState('invalid');
-                    setNameError('Name is required!');
+                    const error = !value ? 'Name is required!' : !isValid ? 'Name must be at least 3 characters long!' : 'Other Error';
+                    setNameError(error);
                 } else {
                     setNameFieldState('valid');
                     setNameError('');
@@ -68,10 +56,11 @@ const MailMeDesktop = (): ReactElement => {
             }
             case 'email': {
                 setEmail(value);
-                console.log(value);
-                if (!isEmailValid(value)) {
+                // console.log(value);
+                if (!isValid) {
                     setEmailFieldState('invalid');
-                    setEmailError('Wrong email address!');
+                    const error = !value ? 'Email is required!' : !isValid ? 'A valid email address is required!' : 'Other Error';
+                    setEmailError(error);
                 } else {
                     setEmailFieldState('valid');
                     setEmailError('');
@@ -80,9 +69,10 @@ const MailMeDesktop = (): ReactElement => {
             }
             case 'message': {
                 setMessage(value);
-                if (!value) {
+                if (!value || !isValid) {
                     setMessageFieldState('invalid');
-                    setMessageError('Message is required!');
+                    const error = !value ? 'Message is required!' : !isValid ? 'Message must be at least 10 characters long!' : 'Other Error';
+                    setMessageError(error);
                 } else {
                     setMessageFieldState('valid');
                     setMessageError('');
@@ -92,7 +82,7 @@ const MailMeDesktop = (): ReactElement => {
         }
     };
 
-    const handleOnFocusOut = (field: FieldType, e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>): void => {
+    const handleOnFocusOut = (field: FieldType, _e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>): void => {
         // console.log(e.currentTarget);
         switch (field) {
             case 'name': {
@@ -128,15 +118,15 @@ const MailMeDesktop = (): ReactElement => {
             return;
         }
         console.log('Form is valid!');
-
-        console.log({ name, email, message });
+        console.log({ name, email, message, date });
         return (console.log(trimmedForm));
 
         const templateParams = {
-            subject: 'Mail-Me Form from my-portfolio-app',
+            subject: "Jivko Karakashev's portfolio-app",
             name: trimmedForm.name,
             email: trimmedForm.email,
-            message: trimmedForm.message
+            message: trimmedForm.message,
+            time: date
         };
 
         const options: Options = {
@@ -164,7 +154,7 @@ const MailMeDesktop = (): ReactElement => {
     };
 
     const isFormValid = (): Boolean => {
-        console.log('isFormValid is Invoked!');
+        // console.log('isFormValid is Invoked!');
         return Object.values({ ...trimmedForm }).some(v => Boolean(v) === false ? false : true);
     };
 
@@ -291,5 +281,6 @@ const MailMeDesktop = (): ReactElement => {
 };
 
 export {
+    type FieldType,
     MailMeDesktop
 }

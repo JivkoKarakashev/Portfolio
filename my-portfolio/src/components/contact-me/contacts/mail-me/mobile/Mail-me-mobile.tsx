@@ -1,10 +1,12 @@
-import { useState, type ReactElement, type ChangeEvent } from "react";
+import { useState, type ReactElement, type ChangeEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 import * as emailjs from '@emailjs/browser';
+import type { Options } from "@emailjs/browser/es/types/Options";
 
 import style from './Mail-me-mobile.module.css';
-import type { Options } from "@emailjs/browser/es/types/Options";
 import { trimFormFields, type FormFields } from "../../../../../utils/trimFormFields";
+import { getFormatedDate, isFormFieldValid } from "../../../../../utils/formValidators.tsx";
 
 type FieldType = 'name' | 'email' | 'message';
 type FieldState = 'initial' | 'valid' | 'invalid';
@@ -18,6 +20,7 @@ const MailMeMobile = (): ReactElement => {
     const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [message, setMessage] = useState<string>('');
+    const [date, setDate] = useState('');
 
     const [nameFieldState, setNameFieldState] = useState<FieldState>('initial');
     const [emailFieldState, setEmailFieldState] = useState<FieldState>('initial');
@@ -27,23 +30,24 @@ const MailMeMobile = (): ReactElement => {
     const [emailError, setEmailError] = useState<string>('');
     const [messageError, setMessageError] = useState<string>('');
 
-    const isEmailValid = (email: string): boolean => {
-        console.log(email);
-        // const validEmail = new RegExp('^[a-z0-9]+([._-]?[a-z0-9]+)+@[a-z0-9]+([._-]?[a-z0-9]+)+\\.[a-z]{2,3}$');
-        const validEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/g;
-        return validEmail.test(email);
-    };
+    useEffect(() => {
+        const fdate = getFormatedDate();
+        setDate(fdate);
+        return () => { };
+    }, []);
 
     const handleInputChange = (field: FieldType, e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         // console.log(field);
         const value = e.target.value;
+        const isValid = isFormFieldValid(field, value);
 
         switch (field) {
             case 'name': {
                 setName(value);
-                if (!value) {
+                if (!value || !isValid) {
                     setNameFieldState('invalid');
-                    setNameError('Name is required!');
+                    const error = !value ? 'Name is required!' : !isValid ? 'Name must be at least 3 characters long!' : 'Other Error';
+                    setNameError(error);
                 } else {
                     setNameFieldState('valid');
                     setNameError('');
@@ -52,10 +56,11 @@ const MailMeMobile = (): ReactElement => {
             }
             case 'email': {
                 setEmail(value);
-                console.log(value);
-                if (!isEmailValid(value)) {
+                // console.log(value);
+                if (!isValid) {
                     setEmailFieldState('invalid');
-                    setEmailError('Wrong email address!');
+                    const error = !value ? 'Email is required!' : !isValid ? 'A valid email address is required!' : 'Other Error';
+                    setEmailError(error);
                 } else {
                     setEmailFieldState('valid');
                     setEmailError('');
@@ -64,9 +69,10 @@ const MailMeMobile = (): ReactElement => {
             }
             case 'message': {
                 setMessage(value);
-                if (!value) {
+                if (!value || !isValid) {
                     setMessageFieldState('invalid');
-                    setMessageError('Message is required!');
+                    const error = !value ? 'Message is required!' : !isValid ? 'Message must be at least 10 characters long!' : 'Other Error';
+                    setMessageError(error);
                 } else {
                     setMessageFieldState('valid');
                     setMessageError('');
@@ -76,7 +82,7 @@ const MailMeMobile = (): ReactElement => {
         }
     };
 
-    const handleOnFocusOut = (field: FieldType, e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>): void => {
+    const handleOnFocusOut = (field: FieldType, _e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>): void => {
         // console.log(e.currentTarget);
         switch (field) {
             case 'name': {
@@ -112,15 +118,15 @@ const MailMeMobile = (): ReactElement => {
             return;
         }
         console.log('Form is valid!');
-
-        console.log({ name, email, message });
+        console.log({ name, email, message, date });
         return (console.log(trimmedForm));
 
         const templateParams = {
-            subject: 'Mail-Me Form from my-portfolio-app',
+            subject: "Jivko Karakashev's portfolio-app",
             name: trimmedForm.name,
             email: trimmedForm.email,
-            message: trimmedForm.message
+            message: trimmedForm.message,
+            time: date
         };
 
         const options: Options = {
@@ -148,8 +154,8 @@ const MailMeMobile = (): ReactElement => {
     };
 
     const isFormValid = (): Boolean => {
-        console.log('isFormValid is Invoked!');
-        return Object.values({...trimmedForm}).some(v => Boolean(v) === false ? false : true);
+        // console.log('isFormValid is Invoked!');
+        return Object.values({ ...trimmedForm }).some(v => Boolean(v) === false ? false : true);
     };
 
     return (
