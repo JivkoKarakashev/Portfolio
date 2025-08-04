@@ -1,182 +1,54 @@
-import { useState, type ReactElement, type ChangeEvent, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
-import * as emailjs from '@emailjs/browser';
-import type { Options } from "@emailjs/browser/es/types/Options";
+import { type ReactElement, type ChangeEvent } from "react";
+import { useNavigate, type ErrorResponse } from "react-router-dom";
 
 import style from './Mail-me-mobile.module.css';
-import { trimFormFields, type FormFields } from "../../../../../utils/trimFormFields";
-import { getFormatedDate, isFormFieldValid } from "../../../../../utils/formValidators.tsx";
-
-type FieldType = 'name' | 'email' | 'message';
-type FieldState = 'initial' | 'valid' | 'invalid';
+import { useMailFormStore, type FieldType } from "../../../../../store/mailFormStore.tsx";
 
 const MailMeMobile = (): ReactElement => {
 
     const navigate = useNavigate();
+    const onSuccess = () => navigate('/contact-me/thank-you');
+    const onError = (err: ErrorResponse) => alert(`Email send failed: ${err}`);
 
-    let trimmedForm: FormFields = {};
+    const { fieldsValue, fieldsState, errors } = useMailFormStore();
+    const { setFieldValue, validateFieldOnBlur, submitForm } = useMailFormStore();
 
-    const [name, setName] = useState<string>('');
-    const [email, setEmail] = useState<string>('');
-    const [message, setMessage] = useState<string>('');
-    const [date, setDate] = useState('');
-
-    const [nameFieldState, setNameFieldState] = useState<FieldState>('initial');
-    const [emailFieldState, setEmailFieldState] = useState<FieldState>('initial');
-    const [messageFieldState, setMessageFieldState] = useState<FieldState>('initial');
-
-    const [nameError, setNameError] = useState<string>('');
-    const [emailError, setEmailError] = useState<string>('');
-    const [messageError, setMessageError] = useState<string>('');
-
-    useEffect(() => {
-        const fdate = getFormatedDate();
-        setDate(fdate);
-        return () => { };
-    }, []);
-
-    const handleInputChange = (field: FieldType, e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const onInputChange = (field: FieldType, e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         // console.log(field);
         const value = e.target.value;
-        const isValid = isFormFieldValid(field, value);
+        setFieldValue(field, value);
 
-        switch (field) {
-            case 'name': {
-                setName(value);
-                if (!value || !isValid) {
-                    setNameFieldState('invalid');
-                    const error = !value ? 'Name is required!' : !isValid ? 'Name must be at least 3 characters long!' : 'Other Error';
-                    setNameError(error);
-                } else {
-                    setNameFieldState('valid');
-                    setNameError('');
-                }
-                break;
-            }
-            case 'email': {
-                setEmail(value);
-                // console.log(value);
-                if (!isValid) {
-                    setEmailFieldState('invalid');
-                    const error = !value ? 'Email is required!' : !isValid ? 'A valid email address is required!' : 'Other Error';
-                    setEmailError(error);
-                } else {
-                    setEmailFieldState('valid');
-                    setEmailError('');
-                }
-                break;
-            }
-            case 'message': {
-                setMessage(value);
-                if (!value || !isValid) {
-                    setMessageFieldState('invalid');
-                    const error = !value ? 'Message is required!' : !isValid ? 'Message must be at least 10 characters long!' : 'Other Error';
-                    setMessageError(error);
-                } else {
-                    setMessageFieldState('valid');
-                    setMessageError('');
-                }
-                break;
-            }
-        }
     };
 
-    const handleOnFocusOut = (field: FieldType, _e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>): void => {
+    const onBlur = (field: FieldType, _e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>): void => {
         // console.log(e.currentTarget);
-        switch (field) {
-            case 'name': {
-                if (!name) {
-                    setNameFieldState('invalid');
-                    setNameError('Name is required!');
-                }
-                break;
-            }
-            case 'email': {
-                if (!email) {
-                    setEmailFieldState('invalid');
-                    setEmailError('Email is required!');
-                }
-                break;
-            }
-            case 'message': {
-                if (!message) {
-                    setMessageFieldState('invalid');
-                    setMessageError('Message is required!');
-                }
-                break;
-            }
-        }
-
+        validateFieldOnBlur(field);
     };
 
-    const submitHandler = (e: React.FormEvent) => {
+    const onFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        trimmedForm = trimFormFields({ name, email, message });
-        if (isFormValid() === false) {
-            alert('Invalid FORM!!');
-            return;
-        }
-        console.log('Form is valid!');
-        console.log({ name, email, message, date });
-        return (console.log(trimmedForm));
-
-        const templateParams = {
-            subject: "Jivko Karakashev's portfolio-app",
-            name: trimmedForm.name,
-            email: trimmedForm.email,
-            message: trimmedForm.message,
-            time: date
-        };
-
-        const options: Options = {
-            blockHeadless: true,
-            limitRate: {
-                throttle: 10000
-            },
-            publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-        }
-        // return console.log(options);
-        emailjs.send(
-            import.meta.env.VITE_EMAILJS_SERVICE_ID,
-            import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-            templateParams,
-            options)
-            .then(res => {
-                if (res.status === 200 && res.text === 'OK') {
-                    navigate('/contact-me/thank-you');
-                }
-            })
-            .catch(err => {
-                console.log(err);
-                alert(`Email send failed: ${err}`);
-            });
-    };
-
-    const isFormValid = (): Boolean => {
-        // console.log('isFormValid is Invoked!');
-        return Object.values({ ...trimmedForm }).some(v => Boolean(v) === false ? false : true);
+        submitForm(onSuccess, onError)
     };
 
     return (
         <section className={style["content"]}>
-            <form className={style['form']} onSubmit={submitHandler}>
+            <form className={style['form']} onSubmit={onFormSubmit}>
                 <div className="name-wrapper">
                     <label htmlFor="name" className={style['name']}>_name:</label>
                     <div className={style["input-wrapper"]}>
                         <input
                             type="text"
-                            value={name}
-                            onChange={(e) => handleInputChange('name', e)}
-                            onBlur={(e) => handleOnFocusOut('name', e)}
+                            value={fieldsValue.name}
+                            onChange={(e) => onInputChange('name', e)}
+                            onBlur={(e) => onBlur('name', e)}
                             id="name"
                             name="name"
-                            className={`${style['name']} ${nameFieldState === 'invalid' ? style["error-field"] : nameFieldState === 'valid' ? style["valid-field"] : ''}`}
+                            className={`${style['name']} ${fieldsState.name === 'invalid' ? style["error-field"] : fieldsState.name === 'valid' ? style["valid-field"] : ''}`}
                         />
-                        <span className={`${style["icon"]} ${nameFieldState === 'invalid' ? style["exclamation"] : nameFieldState === 'valid' ? style["check"] : ''}`} />
+                        <span className={`${style["icon"]} ${fieldsState.name === 'invalid' ? style["exclamation"] : fieldsState.name === 'valid' ? style["check"] : ''}`} />
                     </div>
-                    {nameError && (
-                        <span className={style['error-text']}>{nameError}</span>
+                    {errors.name && (
+                        <span className={style['error-text']}>{errors.name}</span>
                     )}
                 </div>
 
@@ -185,17 +57,17 @@ const MailMeMobile = (): ReactElement => {
                     <div className={style["input-wrapper"]}>
                         <input
                             type="text"
-                            value={email}
-                            onChange={(e) => handleInputChange('email', e)}
-                            onBlur={(e) => handleOnFocusOut('email', e)}
+                            value={fieldsValue.email}
+                            onChange={(e) => onInputChange('email', e)}
+                            onBlur={(e) => onBlur('email', e)}
                             id="email"
                             name="email"
-                            className={`email ${emailFieldState === 'invalid' ? style["error-field"] : emailFieldState === 'valid' ? style["valid-field"] : ''}`}
+                            className={`email ${fieldsState.email === 'invalid' ? style["error-field"] : fieldsState.email === 'valid' ? style["valid-field"] : ''}`}
                         />
-                        <span className={`${style["icon"]} ${emailFieldState === 'invalid' ? style["exclamation"] : emailFieldState === 'valid' ? style["check"] : ''}`} />
+                        <span className={`${style["icon"]} ${fieldsState.email === 'invalid' ? style["exclamation"] : fieldsState.email === 'valid' ? style["check"] : ''}`} />
                     </div>
-                    {emailError && (
-                        <span className={style['error-text']}>{emailError}</span>
+                    {errors.email && (
+                        <span className={style['error-text']}>{errors.email}</span>
                     )}
                 </div>
 
@@ -204,26 +76,26 @@ const MailMeMobile = (): ReactElement => {
                     <div className={style["input-wrapper"]}>
                         <textarea
                             rows={4}
-                            value={message}
-                            onChange={(e) => handleInputChange('message', e)}
-                            onBlur={(e) => handleOnFocusOut('message', e)}
+                            value={fieldsValue.message}
+                            onChange={(e) => onInputChange('message', e)}
+                            onBlur={(e) => onBlur('message', e)}
                             placeholder="your message here …"
                             id="message"
                             name="message"
-                            className={`${style['message']} ${messageFieldState === 'invalid' ? style["error-field"] : messageFieldState === 'valid' ? style["valid-field"] : ''}`}
+                            className={`${style['message']} ${fieldsState.message === 'invalid' ? style["error-field"] : fieldsState.message === 'valid' ? style["valid-field"] : ''}`}
                         />
-                        <span className={`${style["icon"]} ${messageFieldState === 'invalid' ? style["exclamation"] : messageFieldState === 'valid' ? style["check"] : ''}`} />
+                        <span className={`${style["icon"]} ${fieldsState.message === 'invalid' ? style["exclamation"] : fieldsState.message === 'valid' ? style["check"] : ''}`} />
                     </div>
-                    {messageError && (
-                        <span className={style['error-text']}>{messageError}</span>
+                    {errors.message && (
+                        <span className={style['error-text']}>{errors.message}</span>
                     )}
                 </div>
 
                 <input
                     type="submit"
                     value='submit-message'
-                    disabled={Boolean(nameFieldState === 'invalid' && emailFieldState === 'invalid' && messageFieldState === 'invalid')}
-                    className={`${style['button']} ${Boolean(nameFieldState === 'valid' && emailFieldState === 'valid' && messageFieldState === 'valid') ? style['enabled'] : style['disabled']}`}
+                    disabled={Boolean(fieldsState.name === 'invalid' || fieldsState.email === 'invalid' || fieldsState.message === 'invalid')}
+                    className={`${style['button']} ${Boolean(fieldsState.name === 'valid' && fieldsState.email === 'valid' && fieldsState.message === 'valid') ? style['enabled'] : style['disabled']}`}
                 />
             </form>
         </section>
