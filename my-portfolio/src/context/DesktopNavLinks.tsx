@@ -22,7 +22,7 @@ interface DesktopNavLinksStateInterface {
 
 const desktopNavLinksStateInterfaceInit: DesktopNavLinksStateInterface = {
     navLinksState: { ...desktopNavLinksStateInit } as DesktopNavLinksState,
-    setNavLinksState: (state: DesktopNavLinksState) => { }
+    setNavLinksState: (_state: DesktopNavLinksState) => { }
 } as DesktopNavLinksStateInterface;
 
 const DesktopNavLinksStatesContext = createContext<DesktopNavLinksStateInterface>(desktopNavLinksStateInterfaceInit);

@@ -1,0 +1,12 @@
+.row-wrapper {
+    cursor: pointer;
+    background-color: #314158;
+    display: flex;
+    line-height: 3em;
+    gap: .5em;
+
+    & i[class*="fa-caret"] {
+        align-self: center;
+        text-indent: 1em;
+    }
+}

@@ -25,7 +25,7 @@ const HeaderDesktop = (): ReactElement => {
                             <NavLink to="/about-me" onClick={(e) => toggleActive(e)}>&#95;about&#45;me</NavLink>
                         </li>
                         <li className={navLinksState['_projects'] === 'active' ? style['active'] : undefined}>
-                            <NavLink to="javascript:void(0)" onClick={(e) => toggleActive(e)}>&#95;projects</NavLink>
+                            <NavLink to="/projects" onClick={(e) => toggleActive(e)}>&#95;projects</NavLink>
                         </li>
                     </ul>
                 </nav>

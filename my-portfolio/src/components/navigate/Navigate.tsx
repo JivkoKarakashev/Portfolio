@@ -1,5 +1,5 @@
 import { useContext, type JSX } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import style from "./navigate.module.css";
@@ -38,6 +38,10 @@ const Navigate = (): boolean | JSX.Element => {
                 navigate('/');
                 break;
             }
+            case '_projects': {
+                navigate('/projects');
+                break;
+            }
             case '_contact-me': {
                 navigate('/contact-me');
                 break;
@@ -71,7 +75,7 @@ const Navigate = (): boolean | JSX.Element => {
                     <span onClick={(e) => onNavigate(e)}>&#95;about&#45;me</span>
                 </li>
                 <li className={`${style["row"]} ${style['link']}`}>
-                    <Link to="javascript:void(0)">&#95;projects</Link>
+                    <span onClick={(e) => onNavigate(e)}>&#95;projects</span>
                 </li>
                 <li className={`${style["row"]} ${style['link']}`}>
                     <span onClick={(e) => onNavigate(e)}>&#95;contact&#45;me</span>

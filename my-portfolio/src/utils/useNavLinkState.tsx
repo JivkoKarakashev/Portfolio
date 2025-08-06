@@ -6,9 +6,13 @@ const useNavLinkState = () => {
 
     const { navLinksState, setNavLinksState } = useContext(DesktopNavLinksStatesContext);
 
-    const toggleActive = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    const toggleActive = (e?: React.MouseEvent<HTMLElement, MouseEvent>, activetedLink?: string) => {
         // console.log(e.currentTarget.textContent);
-        const activetedLink = e.currentTarget.textContent || '';
+        // activetedLink = e.currentTarget.textContent || '';
+        // activetedLink = activetedLink ? activetedLink : e ? e.currentTarget.textContent : '';
+        if (e) {
+            activetedLink = e.currentTarget.textContent || '';
+        }
         let currState = { ...navLinksState };
 
         for (const key in currState) {

@@ -1,4 +1,4 @@
-import { type ReactElement, useContext } from "react";
+import { type ReactElement, useContext, useEffect } from "react";
 import { useLocation, useOutlet } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -10,12 +10,13 @@ import { ContactsExpand } from "./contacts/Contacts-expand.tsx";
 import { ContactsCollapse } from "./contacts/Contacts-collapse.tsx";
 import { FindMeAlsoInExpand } from "./find-me-also-in/Find-me-also-in-expand.tsx";
 import { FindMeAlsoInCollapse } from "./find-me-also-in/Find-me-also-in-collapse.tsx";
+import { useNavLinkState } from "../../utils/useNavLinkState.tsx";
 
 // import { LocationPathStateContext } from "../../context/LocationPath.tsx";
 // import { Link } from "react-router-dom";
 
 const AnimatedContactMe = () => {
-    console.log('Inital Render');
+    // console.log('Inital Render');
     const { viewModeState } = useContext(ViewModeStateContext);
     // const { currPath, prevPath } = useContext(LocationPathStateContext);
     // const isSamePath = currPath === prevPath;
@@ -53,6 +54,12 @@ const AnimatedContactMe = () => {
 };
 
 const ContactMe = (): ReactElement => {
+
+    const { toggleActive } = useNavLinkState();
+
+    useEffect(() => {
+        toggleActive(undefined, '_contact-me');
+    }, []);
 
     const { contactMeSectionsState } = useContext(ContactMeSectionsStateContext);
     const { viewModeState } = useContext(ViewModeStateContext);

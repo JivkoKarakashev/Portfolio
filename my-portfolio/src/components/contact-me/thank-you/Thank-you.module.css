@@ -1,0 +1,29 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+    gap: .5em;
+}
+
+.row-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-wrapper:nth-child(1) {
+    color: #fff;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.button {
+    margin: 2em 0;
+    cursor: pointer;
+    padding: 1em;
+    border-radius: .5em;
+    max-width: fit-content;
+    background-color: #FFD6A7;
+    color: #020618;
+}

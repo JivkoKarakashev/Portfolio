@@ -1,4 +1,4 @@
-import { type ReactElement, useContext } from "react";
+import { type ReactElement, useContext, useEffect } from "react";
 import { useLocation, useOutlet } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -10,12 +10,13 @@ import { PersonalInfoExpand } from "./personal-info/personal-info-expand.tsx";
 import { PersonalInfoCollapse } from "./personal-info/personal-info-collapse.tsx";
 import { HobbiesExpand } from "./hobbies/Hobbies-expand.tsx";
 import { HobbiesCollapse } from "./hobbies/Hobbies-collapse.tsx";
+import { useNavLinkState } from "../../utils/useNavLinkState.tsx";
 
 // import { LocationPathStateContext } from "../../context/LocationPath.tsx";
 // import { Link } from "react-router-dom";
 
 const AnimatedAboutMe = () => {
-    console.log('Inital Render');
+    // console.log('Inital Render');
     const { viewModeState } = useContext(ViewModeStateContext);
     // const { currPath, prevPath } = useContext(LocationPathStateContext);
     // const isSamePath = currPath === prevPath;
@@ -53,6 +54,11 @@ const AnimatedAboutMe = () => {
 };
 
 const AboutMe = (): ReactElement => {
+    const { toggleActive } = useNavLinkState();
+
+    useEffect(() => {
+        toggleActive(undefined, '_about-me');
+    }, []);
 
     const { aboutMeSectionsState } = useContext(AboutMeSectionsStateContext);
     const { viewModeState } = useContext(ViewModeStateContext);
