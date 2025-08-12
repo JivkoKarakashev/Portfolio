@@ -1,0 +1,83 @@
+section.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 2em;
+    gap: 2em;
+}
+
+.project {
+    flex: 0 1 30%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.project h3 {
+    color: #90a1b9;
+    font-size: 1em;
+    max-height: 30vh;
+}
+
+.highlight {
+    color: #615FFF;
+}
+
+/* Card */
+.project-card {
+    flex: 1 1 auto;
+    background-color: #020618;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.bottom-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2em;
+    gap: 1em;
+}
+
+.img-wrapper {
+    display: flex;
+    position: relative;
+}
+
+.project-card img {
+    border-radius: 10px 10px 0 0;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, .5);
+    padding: 0.3rem;
+    border-radius: 6px;
+}
+
+.badge>span[class*="-icon-container"] {
+    height: 3em;
+}
+
+.project-card p {
+    font-weight: 600;
+    font-size: 0.9em;
+    color: #90a1b9;
+}
+
+.project-card .button {
+    background: #334155;
+    color: #e2e8f0;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    width: fit-content;
+}

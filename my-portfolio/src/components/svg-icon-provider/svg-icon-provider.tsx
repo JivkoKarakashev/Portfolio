@@ -435,5 +435,6 @@ function SvgIconProvider({ iconName, textContent = undefined, tooltipProps = und
 }
 
 export {
-    SvgIconProvider
+    SvgIconProvider,
+    type IconName
 }

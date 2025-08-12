@@ -63,6 +63,10 @@ label {
     font-size: 1.2em;
 }
 
+span.all::before {
+    margin-right: 1em;
+}
+
 .checked::before {
     content: '\f14a';
     font: var(--fa-font-solid);

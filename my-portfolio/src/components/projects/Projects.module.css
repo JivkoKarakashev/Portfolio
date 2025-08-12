@@ -1,0 +1,11 @@
+/* Projects */
+div.projects {
+    display: flex;
+    flex-direction: column;
+    background-color: #0f172b;
+    /* gap: 1em; */
+}
+
+.nav-title {
+    margin: 1.5em;
+}

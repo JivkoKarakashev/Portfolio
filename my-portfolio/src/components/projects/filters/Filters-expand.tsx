@@ -6,7 +6,7 @@ import { SvgIconProvider } from '../../svg-icon-provider/svg-icon-provider.tsx';
 
 const ProjectsFilterExpand = () => {
 
-    const { filterName, toggleCheckbox, toggleFilterState } = useFilterProjectsStore();
+    const { filterName, toggleCheckbox, toggleFilterState, setProjectsState } = useFilterProjectsStore();
 
     const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         // console.log(field);
@@ -17,6 +17,7 @@ const ProjectsFilterExpand = () => {
             return;
         }
         toggleCheckbox(fName);
+        setProjectsState();
     };
 
     return (
@@ -27,6 +28,12 @@ const ProjectsFilterExpand = () => {
                     tech-stack-filter
                 </ul>
                 <ul className={style["column-wrapper"]}>
+                    <li className={style['row']}>
+                        <input id="all" name="all" type="checkbox" checked={filterName.all} onChange={(e) => onInputChange(e)} />
+                        <label htmlFor="all" className={style['name']}>
+                            <span className={`${style["checkbox-icon"]} ${style["all"]} ${filterName.all ? style["checked"] : style["unchecked"]}`}>All projects</span>
+                        </label>
+                    </li>
                     <li className={style['row']}>
                         <input id="react" name="react" type="checkbox" checked={filterName.react} onChange={(e) => onInputChange(e)} />
                         <label htmlFor="react" className={style['name']}>
@@ -39,6 +46,20 @@ const ProjectsFilterExpand = () => {
                         <label htmlFor="angular" className={style['name']}>
                             <span className={`${style["checkbox-icon"]} ${filterName.angular ? style["checked"] : style["unchecked"]}`} />
                             <SvgIconProvider iconName="angular" textContent="Angular"></SvgIconProvider>
+                        </label>
+                    </li>
+                    <li className={style['row']}>
+                        <input id="javascript" name="javascript" type="checkbox" checked={filterName.javascript} onChange={(e) => onInputChange(e)} />
+                        <label htmlFor="javascript" className={style['name']}>
+                            <span className={`${style["checkbox-icon"]} ${filterName.javascript ? style["checked"] : style["unchecked"]}`} />
+                            <SvgIconProvider iconName="javascript" textContent="JavaScript"></SvgIconProvider>
+                        </label>
+                    </li>
+                    <li className={style['row']}>
+                        <input id="typescript" name="typescript" type="checkbox" checked={filterName.typescript} onChange={(e) => onInputChange(e)} />
+                        <label htmlFor="typescript" className={style['name']}>
+                            <span className={`${style["checkbox-icon"]} ${filterName.typescript ? style["checked"] : style["unchecked"]}`} />
+                            <SvgIconProvider iconName="typescript" textContent="TypeScript"></SvgIconProvider>
                         </label>
                     </li>
                     <li className={style['row']}>

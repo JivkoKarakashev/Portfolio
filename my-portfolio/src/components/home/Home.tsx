@@ -40,7 +40,7 @@ const Home = (): JSX.Element => {
             <div className={style["left-wrapper"]}>
                 <section className={`${style["row"]} ${style["bio"]}`}>
                     <h2 className={style["intro"]}>Hello, I&#39;m</h2>
-                    <h1 className={style["name"]}>Jivko Karakashev</h1>
+                    <h1 className={style["name"]}>Jivko</h1>
                     <ul className={style["row-wrapper"]}>
                         <li className={style["col"]}><span>&gt;</span></li>
                         <ul className={style["col"]}>
