@@ -2,7 +2,7 @@ import { type ReactElement, type ChangeEvent } from "react";
 import { useNavigate, type ErrorResponse } from "react-router-dom";
 
 import style from './Mail-me-mobile.module.css';
-import { useMailFormStore, type FieldType } from "../../../../../store/mailFormStore.tsx";
+import { useMailFormStore, type FieldType } from "../../../../../store/mailFormStore.ts";
 
 const MailMeMobile = (): ReactElement => {
 
@@ -20,7 +20,7 @@ const MailMeMobile = (): ReactElement => {
 
     };
 
-    const onBlur = (field: FieldType, _e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>): void => {
+    const onBlur = (field: FieldType): void => {
         // console.log(e.currentTarget);
         validateFieldOnBlur(field);
     };
@@ -40,7 +40,7 @@ const MailMeMobile = (): ReactElement => {
                             type="text"
                             value={fieldsValue.name}
                             onChange={(e) => onInputChange('name', e)}
-                            onBlur={(e) => onBlur('name', e)}
+                            onBlur={() => onBlur('name')}
                             id="name"
                             name="name"
                             className={`${style['name']} ${fieldsState.name === 'invalid' ? style["error-field"] : fieldsState.name === 'valid' ? style["valid-field"] : ''}`}
@@ -59,7 +59,7 @@ const MailMeMobile = (): ReactElement => {
                             type="text"
                             value={fieldsValue.email}
                             onChange={(e) => onInputChange('email', e)}
-                            onBlur={(e) => onBlur('email', e)}
+                            onBlur={() => onBlur('email')}
                             id="email"
                             name="email"
                             className={`email ${fieldsState.email === 'invalid' ? style["error-field"] : fieldsState.email === 'valid' ? style["valid-field"] : ''}`}
@@ -78,7 +78,7 @@ const MailMeMobile = (): ReactElement => {
                             rows={4}
                             value={fieldsValue.message}
                             onChange={(e) => onInputChange('message', e)}
-                            onBlur={(e) => onBlur('message', e)}
+                            onBlur={() => onBlur('message')}
                             placeholder="your message here …"
                             id="message"
                             name="message"
@@ -94,8 +94,8 @@ const MailMeMobile = (): ReactElement => {
                 <input
                     type="submit"
                     value='submit-message'
-                    disabled={Boolean(fieldsState.name === 'invalid' || fieldsState.email === 'invalid' || fieldsState.message === 'invalid')}
-                    className={`${style['button']} ${Boolean(fieldsState.name === 'valid' && fieldsState.email === 'valid' && fieldsState.message === 'valid') ? style['enabled'] : style['disabled']}`}
+                    disabled={fieldsState.name === 'invalid' || fieldsState.email === 'invalid' || fieldsState.message === 'invalid'}
+                    className={`${style['button']} ${fieldsState.name === 'valid' && fieldsState.email === 'valid' && fieldsState.message === 'valid' ? style['enabled'] : style['disabled']}`}
                 />
             </form>
         </section>

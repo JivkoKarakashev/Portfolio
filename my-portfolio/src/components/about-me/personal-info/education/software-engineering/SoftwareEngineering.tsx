@@ -2,8 +2,9 @@ import type { ReactElement } from "react";
 import { Link } from "react-router-dom";
 
 import style from "./SoftwareEngineering.module.css";
-import { TooltipComposer, tooltipTypes } from "../../../../icon-with-tooltip/IconWithTooltip";
-import { SvgIconProvider } from "../../../../svg-icon-provider/svg-icon-provider";
+import { TooltipComposer } from "../../../../icon-with-tooltip/IconWithTooltip.tsx";
+import { SvgIconProvider } from "../../../../svg-icon-provider/svg-icon-provider.tsx";
+import { tooltipTypes } from "../../../../../constants/tooltipTypes.ts";
 
 const SoftwareEngineering = (): ReactElement => {
     return (

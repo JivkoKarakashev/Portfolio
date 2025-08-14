@@ -1,4 +1,4 @@
-import type { FieldType } from "../store/mailFormStore.tsx";
+import type { FieldType } from "../store/mailFormStore.ts";
 
 interface ValidatorRegExpType {
     name: RegExp,

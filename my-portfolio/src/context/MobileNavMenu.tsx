@@ -11,7 +11,7 @@ interface MobileNavMenuStateInterface {
 
 const mobileNavMenuStateInit: MobileNavMenuStateInterface = {
     menuState: 'closed',
-    setMenuState: (state: MobileNavMenuState) => { }
+    setMenuState: () => { }
 } as MobileNavMenuStateInterface;
 
 const MobileNavMenuStatesContext = createContext<MobileNavMenuStateInterface>(mobileNavMenuStateInit);

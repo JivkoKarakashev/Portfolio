@@ -1,7 +1,7 @@
 import { createContext, type ReactElement } from "react";
 
 import type { ContextProps } from "./ComposeAppContexts.tsx";
-import { useMediaQuery } from "../utils/useMediaQuery.tsx";
+import { useMediaQuery } from "../custom-hooks/useMediaQuery.tsx";
 
 type ViewModeState = 'mobile' | 'desktop';
 

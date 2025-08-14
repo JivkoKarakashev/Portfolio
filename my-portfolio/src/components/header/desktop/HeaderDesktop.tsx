@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import style from "./HeaderDesktop.module.css";
 import { DesktopNavLinksStatesContext } from "../../../context/DesktopNavLinks.tsx";
-import { useNavLinkState } from "../../../utils/useNavLinkState.tsx";
+import { useNavLinkState } from "../../../custom-hooks/useNavLinkState.tsx";
 
 const HeaderDesktop = (): ReactElement => {
 

@@ -6,9 +6,8 @@ import style from "./navigate.module.css";
 
 import { navigatePageVariants } from "../../animations/navigatePage.tsx";
 import { MobileNavMenuStatesContext } from "../../context/MobileNavMenu.tsx";
+import { useNavLinkState } from "../../custom-hooks/useNavLinkState.tsx";
 // import { DesktopNavLinksStatesContext } from "../../context/DesktopNavLinks.tsx";
-import { useNavLinkState } from "../../utils/useNavLinkState.tsx";
-// import { AppStatesContext } from "../../context/AppStatesContext.tsx";
 
 const Navigate = (): boolean | JSX.Element => {
     const { setMenuState } = useContext(MobileNavMenuStatesContext);

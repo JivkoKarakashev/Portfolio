@@ -2,7 +2,8 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import style from './personal-info-expand.module.css';
-import { AboutMeSectionsStateContext, type sectionState } from '../../../context/AboutMeSections.tsx';
+import type { sectionState } from '../../../constants/sectionsStateInit.ts';
+import { AboutMeSectionsStateContext } from '../../../context/AboutMeSections.tsx';
 import { EducationExpand } from './education/Education-expand.tsx';
 import { EducationCollapse } from './education/Education-collapse.tsx';
 

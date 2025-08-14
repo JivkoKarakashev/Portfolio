@@ -10,7 +10,7 @@ import { PersonalInfoExpand } from "./personal-info/personal-info-expand.tsx";
 import { PersonalInfoCollapse } from "./personal-info/personal-info-collapse.tsx";
 import { HobbiesExpand } from "./hobbies/Hobbies-expand.tsx";
 import { HobbiesCollapse } from "./hobbies/Hobbies-collapse.tsx";
-import { useNavLinkState } from "../../utils/useNavLinkState.tsx";
+import { useNavLinkState } from "../../custom-hooks/useNavLinkState.tsx";
 
 // import { LocationPathStateContext } from "../../context/LocationPath.tsx";
 // import { Link } from "react-router-dom";
@@ -58,6 +58,7 @@ const AboutMe = (): ReactElement => {
 
     useEffect(() => {
         toggleActive(undefined, '_about-me');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const { aboutMeSectionsState } = useContext(AboutMeSectionsStateContext);

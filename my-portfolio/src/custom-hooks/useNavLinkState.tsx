@@ -1,6 +1,7 @@
 import { useContext } from "react";
 
-import { DesktopNavLinksStatesContext, desktopNavLinksStateInit } from "../context/DesktopNavLinks.tsx";
+import { DesktopNavLinksStatesContext } from "../context/DesktopNavLinks.tsx";
+import { desktopNavLinksStateInit } from "../constants/desktopNavLinksStateInit.ts";
 
 const useNavLinkState = () => {
 

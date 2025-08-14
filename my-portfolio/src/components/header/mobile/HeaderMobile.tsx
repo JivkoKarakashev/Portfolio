@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import style from "./HeaderMobile.module.css";
 import { MobileNavMenuStatesContext } from "../../../context/MobileNavMenu.tsx";
-import { useNavLinkState } from "../../../utils/useNavLinkState.tsx";
+import { useNavLinkState } from "../../../custom-hooks/useNavLinkState.tsx";
 
 const HeaderMobile = (): ReactElement => {
 

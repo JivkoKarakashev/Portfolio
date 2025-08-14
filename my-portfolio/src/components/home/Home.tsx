@@ -70,7 +70,7 @@ const Home = (): JSX.Element => {
 
             <section className={style["right-wrapper"]}>
                 <div className={style["media"]}>
-                    <img src="https://cdn.pixabay.com/photo/2013/07/12/18/38/avatar-153605_960_720.png" alt="profile picture" />
+                    <img src="https://cdn-bucket.jivkokarakashev.work/file/jivko-portfolio/public/images/profile/avatar.webp" alt="profile picture" />
                 </div>
             </section>
         </main>

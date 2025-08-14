@@ -1,17 +1,7 @@
 import { createContext, useState, type Dispatch, type ReactElement, type SetStateAction } from "react";
 
 import type { ContextProps } from "./ComposeAppContexts.tsx";
-
-type sectionState = 'collapse' | 'expand';
-
-interface ContactMeSectionsState {
-    [key: string]: sectionState
-}
-
-const contactMeSectionsStateInit: ContactMeSectionsState = {
-    contacts: 'collapse',
-    'find-me-also-in': 'collapse'
-}
+import { contactMeSectionsStateInit, type ContactMeSectionsState } from "../constants/sectionsStateInit.ts";
 
 interface ContactMeSectionsStateInterface {
     contactMeSectionsState: ContactMeSectionsState,
@@ -21,7 +11,7 @@ interface ContactMeSectionsStateInterface {
 
 const contactMeSectionsStateInterfaceInit: ContactMeSectionsStateInterface = {
     contactMeSectionsState: { ...contactMeSectionsStateInit } as ContactMeSectionsState,
-    setContactMeSectionsState: (_state: ContactMeSectionsState) => { },
+    setContactMeSectionsState: () => { },
     toggleSectionState: () => { }
 } as ContactMeSectionsStateInterface;
 
@@ -31,10 +21,16 @@ function ContactMeSectionsStateContextProvider({ children }: ContextProps): Reac
     const [contactMeSectionsState, setContactMeSectionsState] = useState<ContactMeSectionsState>(contactMeSectionsStateInit);
 
     const toggleSectionState = (section: string) => {
-        console.log(section);
+        // console.log(section);
+        // const newSectionsState = { ...contactMeSectionsState };
+        // const oldState = newSectionsState[section];
+        // oldState === 'collapse' ? newSectionsState[section] = 'expand' : newSectionsState[section] = 'collapse';
         const newSectionsState = { ...contactMeSectionsState };
-        const oldState = newSectionsState[section];
-        oldState === 'collapse' ? newSectionsState[section] = 'expand' : newSectionsState[section] = 'collapse';
+        for (const key in newSectionsState) {
+            if (key === section) {
+                newSectionsState[key] = contactMeSectionsState[section] === 'collapse' ? 'expand' : 'collapse';
+            }
+        }
 
         switch (section) {
             case 'contacts': {
@@ -56,7 +52,6 @@ function ContactMeSectionsStateContextProvider({ children }: ContextProps): Reac
 }
 
 export {
-    type sectionState,
     ContactMeSectionsStateContextProvider,
     ContactMeSectionsStateContext
 }

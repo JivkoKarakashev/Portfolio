@@ -10,8 +10,7 @@ import { ContactsExpand } from "./contacts/Contacts-expand.tsx";
 import { ContactsCollapse } from "./contacts/Contacts-collapse.tsx";
 import { FindMeAlsoInExpand } from "./find-me-also-in/Find-me-also-in-expand.tsx";
 import { FindMeAlsoInCollapse } from "./find-me-also-in/Find-me-also-in-collapse.tsx";
-import { useNavLinkState } from "../../utils/useNavLinkState.tsx";
-
+import { useNavLinkState } from "../../custom-hooks/useNavLinkState.tsx";
 // import { LocationPathStateContext } from "../../context/LocationPath.tsx";
 // import { Link } from "react-router-dom";
 
@@ -59,6 +58,7 @@ const ContactMe = (): ReactElement => {
 
     useEffect(() => {
         toggleActive(undefined, '_contact-me');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const { contactMeSectionsState } = useContext(ContactMeSectionsStateContext);

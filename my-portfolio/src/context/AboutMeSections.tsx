@@ -1,20 +1,7 @@
 import { createContext, useState, type Dispatch, type ReactElement, type SetStateAction } from "react";
 
 import type { ContextProps } from "./ComposeAppContexts.tsx";
-
-type sectionState = 'collapse' | 'expand';
-
-interface AboutMeSectionsState {
-    [key: string]: sectionState
-}
-
-const aboutMeSectionsStateInit: AboutMeSectionsState = {
-    'personal-info': 'collapse',
-    'professional-info': 'collapse',
-    hobbies: 'collapse',
-    contacts: 'collapse'
-}
-
+import { aboutMeSectionsStateInit, type AboutMeSectionsState } from "../constants/sectionsStateInit.ts";
 interface AboutMeSectionsStateInterface {
     aboutMeSectionsState: AboutMeSectionsState,
     setAboutMeSectionsState: Dispatch<SetStateAction<AboutMeSectionsState>>,
@@ -23,7 +10,7 @@ interface AboutMeSectionsStateInterface {
 
 const aboutMeSectionsStateInterfaceInit: AboutMeSectionsStateInterface = {
     aboutMeSectionsState: { ...aboutMeSectionsStateInit } as AboutMeSectionsState,
-    setAboutMeSectionsState: (_state: AboutMeSectionsState) => { },
+    setAboutMeSectionsState: () => { },
     toggleSectionState: () => { }
 } as AboutMeSectionsStateInterface;
 
@@ -33,10 +20,16 @@ function AboutMeSectionsStateContextProvider({ children }: ContextProps): ReactE
     const [aboutMeSectionsState, setAboutMeSectionsState] = useState<AboutMeSectionsState>(aboutMeSectionsStateInit);
 
     const toggleSectionState = (section: string) => {
-        console.log(section);
+        // console.log(section);
+        // const newSectionsState = { ...aboutMeSectionsState };
+        // const oldState = newSectionsState[section];
+        // oldState === 'collapse' ? newSectionsState[section] = 'expand' : newSectionsState[section] = 'collapse';
         const newSectionsState = { ...aboutMeSectionsState };
-        const oldState = newSectionsState[section];
-        oldState === 'collapse' ? newSectionsState[section] = 'expand' : newSectionsState[section] = 'collapse';
+        for (const key in newSectionsState) {
+            if (key === section) {
+                newSectionsState[key] = aboutMeSectionsState[section] === 'collapse' ? 'expand' : 'collapse';
+            }
+        }
 
         switch (section) {
             case 'personal-info': {
@@ -58,7 +51,6 @@ function AboutMeSectionsStateContextProvider({ children }: ContextProps): ReactE
 }
 
 export {
-    type sectionState,
     AboutMeSectionsStateContextProvider,
     AboutMeSectionsStateContext
 }

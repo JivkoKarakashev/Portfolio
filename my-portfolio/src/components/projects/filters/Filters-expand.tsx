@@ -1,7 +1,7 @@
 import type { ChangeEvent } from 'react';
 
 import style from './Filters-expand.module.css';
-import { useFilterProjectsStore } from '../../../store/filterProjectsStore.tsx';
+import { useFilterProjectsStore } from '../../../store/filterProjectsStore.ts';
 import { SvgIconProvider } from '../../svg-icon-provider/svg-icon-provider.tsx';
 
 const ProjectsFilterExpand = () => {
@@ -12,7 +12,7 @@ const ProjectsFilterExpand = () => {
         // console.log(field);
         const target = e.target;
         const fName = target.getAttribute('name');
-        console.log(fName);
+        // console.log(fName);
         if (!fName) {
             return;
         }

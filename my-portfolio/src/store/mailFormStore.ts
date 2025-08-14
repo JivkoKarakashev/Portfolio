@@ -6,8 +6,8 @@ import { devtools } from "zustand/middleware";
 import * as emailjs from '@emailjs/browser';
 import type { Options } from "@emailjs/browser/es/types/Options";
 
-import { formFieldValidator, getFormatedDate } from "../utils/formValidators.tsx";
-import { trimFormFields } from "../utils/trimFormFields.tsx";
+import { formFieldValidator, getFormatedDate } from "../utils/formValidators.ts";
+import { trimFormFields } from "../utils/trimFormFields.ts";
 
 type FieldType = 'name' | 'email' | 'message';
 type FieldState = 'initial' | 'valid' | 'invalid';

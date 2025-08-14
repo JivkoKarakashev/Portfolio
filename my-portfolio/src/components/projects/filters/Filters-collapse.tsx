@@ -1,4 +1,4 @@
-import { useFilterProjectsStore } from "../../../store/filterProjectsStore";
+import { useFilterProjectsStore } from "../../../store/filterProjectsStore.ts";
 import style from "./Filters-collapse.module.css";
 
 const ProjectsFilterCollapse = () => {

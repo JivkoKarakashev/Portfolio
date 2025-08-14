@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import style from "./ProjectsList.module.css";
 import { SvgIconProvider } from "../../svg-icon-provider/svg-icon-provider.tsx";
-import { useFilterProjectsStore } from "../../../store/filterProjectsStore.tsx";
+import { useFilterProjectsStore } from "../../../store/filterProjectsStore.ts";
 import { filterProjectsContainerVariants, filterProjectsVariants } from "../../../animations/filterProjects.tsx";
 
 const ProjectsList = (): ReactElement => {

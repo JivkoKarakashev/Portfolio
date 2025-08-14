@@ -4,8 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import style from "./Projects.module.css";
 import { otherPagesDesktopVariants, otherPagesMobileVariants } from "../../animations/otherPages.tsx";
 import { ViewModeStateContext } from "../../context/ViewMode.tsx";
-import { useNavLinkState } from "../../utils/useNavLinkState.tsx";
-import { useFilterProjectsStore } from "../../store/filterProjectsStore.tsx";
+import { useNavLinkState } from "../../custom-hooks/useNavLinkState.tsx";
+import { useFilterProjectsStore } from "../../store/filterProjectsStore.ts";
 import { ProjectsFilterCollapse } from "./filters/Filters-collapse.tsx";
 import { ProjectsFilterExpand } from "./filters/Filters-expand.tsx";
 import { ProjectsList } from "./partials/ProjectsList.tsx";
@@ -56,6 +56,7 @@ const Projects = (): ReactElement => {
 
     useEffect(() => {
         toggleActive(undefined, '_projects');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
