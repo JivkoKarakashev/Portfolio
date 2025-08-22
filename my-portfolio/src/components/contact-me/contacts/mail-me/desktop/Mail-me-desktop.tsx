@@ -1,11 +1,14 @@
-import { type ReactElement, type ChangeEvent } from "react";
+import { type ReactElement, type ChangeEvent, useState } from "react";
 import { useNavigate, type ErrorResponse } from "react-router-dom";
 
 import style from './Mail-me-desktop.module.css';
 
 import { useMailFormStore, type FieldType } from "../../../../../store/mailFormStore.ts";
+import { TurnstileWidget } from "../turnstile/TurnstileWidget.tsx";
 
 const MailMeDesktop = (): ReactElement => {
+    const [, setToken] = useState('');
+    const [verified, setVerified] = useState(false);
 
     const navigate = useNavigate();
     const onSuccess = () => navigate('/contact-me/thank-you');
@@ -29,6 +32,10 @@ const MailMeDesktop = (): ReactElement => {
         e.preventDefault();
         submitForm(onSuccess, onError);
     };
+
+    const onToken = (t: string) => setToken(t);
+
+    const onVerified = (v: boolean) => setVerified(v);
 
     return (
         <section className={style["content"]}>
@@ -94,11 +101,13 @@ const MailMeDesktop = (): ReactElement => {
                         )}
                     </div>
 
+                    <TurnstileWidget onToken={onToken} onVerified={onVerified} />
+
                     <input
                         type="submit"
                         value='submit-message'
-                        disabled={Boolean(fieldsState.name === 'invalid' || fieldsState.email === 'invalid' && fieldsState.message === 'invalid')}
-                        className={`${style['button']} ${fieldsState.name === 'valid' && fieldsState.email === 'valid' && fieldsState.message === 'valid' ? style['enabled'] : style['disabled']}`}
+                        disabled={fieldsState.name === 'invalid' || fieldsState.email === 'invalid' || fieldsState.message === 'invalid' || !verified}
+                        className={`${style['button']} ${fieldsState.name === 'valid' && fieldsState.email === 'valid' && fieldsState.message === 'valid' && verified ? style['enabled'] : style['disabled']}`}
                     />
                 </form>
             </section>

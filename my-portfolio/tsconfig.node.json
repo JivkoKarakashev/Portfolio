@@ -5,6 +5,7 @@
     "lib": ["ES2023"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "types": ["./node_modules/@marsidev/react-turnstile/dist"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
