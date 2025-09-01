@@ -34,3 +34,5 @@ The site is designed to be lightweight, responsive, and animated with **Framer M
 - <a href="https://react-tooltip.com/" target="_blank"><img src="/my-portfolio/public/icons/tooltip_1.svg" width="auto" height="20" alt="React Tooltip" /></a>&emsp;<span><strong>React Tooltip</strong> — Accessible tooltips for better UX
 
 - <a href="https://www.emailjs.com/" target="_blank"><img src="https://avatars.githubusercontent.com/u/17705215?s=200&v=4" width="auto" height="20" alt="EmailJS" /></a>&emsp;<span><strong>EmailJS</strong> — Contact form integration with EmailJS
+
+- <a href="https://github.com/marsidev/react-turnstile" target="_blank"><img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/Cloudflare-Dark.svg" width="auto" height="20" alt="React Turnstile" /></a>&emsp;<span><strong>React Turnstile</strong> — Cloudflare Turnstile for spam protection
