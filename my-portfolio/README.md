@@ -25,4 +25,6 @@ The site is designed to be lightweight, responsive, and animated with **Framer M
 - [Credits](#credits)
 
 ## Tech Stack
-- <a href="https://react.dev/" target="_blank"><img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/React-Dark.svg" width="auto" height="20" alt="React" /></a>&nbsp;&nbsp;<a href="https://vite.dev/" target="_blank"><img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/Vite-Dark.svg" width="auto" height="20" alt="Vite" /></a><span vertical-align="middle"><strong>React + Vite</strong> — Fast frontend build tool and framework</span>
+- <a href="https://react.dev/" target="_blank"><img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/React-Dark.svg" width="auto" height="20" alt="React" /></a>&emsp;&emsp;<a href="https://vite.dev/" target="_blank"><img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/Vite-Dark.svg" width="auto" height="20" alt="Vite" /></a>&emsp;<span><strong>React + Vite</strong> — Fast frontend build tool and framework</span>
+
+- <a href="https://www.typescriptlang.org/" target="_blank"><img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/TypeScript.svg" width="auto" height="20" alt="React" /></a>&emsp;<span><strong>TypeScript</strong> — Type safety and better developer experience</span>![alt text]()
