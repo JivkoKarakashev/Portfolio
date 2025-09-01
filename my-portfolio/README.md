@@ -12,6 +12,10 @@
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
 
+## Live Version
+
+You can try the deployed version [HERE](https://portfolio.jivkokarakashev.dev/).
+
 ## Overview
 My personal portfolio site built with **React + Vite**, showcasing my projects, skills, and contact form.  
 The site is designed to be lightweight, responsive, and animated with **Framer Motion** for smooth transitions.  
@@ -31,13 +35,13 @@ The site is designed to be lightweight, responsive, and animated with **Framer M
 
 - <a href="https://www.typescriptlang.org/" target="_blank"><img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/TypeScript.svg" width="auto" height="20" alt="TypeScript" /></a>&emsp;<span><strong>TypeScript</strong> — Type safety and better developer experience</span>
 
-- <a href="https://motion.dev/" target="_blank"><img src="https://private-user-images.githubusercontent.com/7850794/444000081-00d6d1c3-72c4-4c2f-a664-69da13182ffc.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTY3MjcwODMsIm5iZiI6MTc1NjcyNjc4MywicGF0aCI6Ii83ODUwNzk0LzQ0NDAwMDA4MS0wMGQ2ZDFjMy03MmM0LTRjMmYtYTY2NC02OWRhMTMxODJmZmMucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI1MDkwMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNTA5MDFUMTEzOTQzWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9OTJjYmQ1N2U4NDI0ZGY0Zjc5Yzg3YWVlOGRiYzc4OTAxNjNkMDJiNzIyMmRhMTVmYzQ5OTc0YjQwODAyMWE4MCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.Rj0WTTagibY7O1wI6mcBzK2yRP4MQvA6efOCK3Fc8KY" width="auto" height="20" alt="Motion for React" /></a>&emsp;<span><strong>Framer Motion</strong> — Modern animations and page transitions</span>
+- <a href="https://motion.dev/" target="_blank"><img src="/my-portfolio/public/icons/motion_logo.png" width="auto" height="20" alt="Motion for React" /></a>&emsp;<span><strong>Framer Motion</strong> — Modern animations and page transitions</span>
 
 - <a href="https://zustand-demo.pmnd.rs/" target="_blank">🐻</a>&emsp;<span><strong>Zustand</strong> — Simple and scalable state management
 
-- <a href="https://react-tooltip.com/" target="_blank"><img src="/my-portfolio/public/icons/tooltip_1.svg" width="auto" height="20" alt="React Tooltip" /></a>&emsp;<span><strong>React Tooltip</strong> — Accessible tooltips for better UX
+- <a href="https://react-tooltip.com/" target="_blank"><img src="/my-portfolio/public/icons/react_tooltip_logo.svg" width="auto" height="20" alt="React Tooltip" /></a>&emsp;<span><strong>React Tooltip</strong> — Accessible tooltips for better UX
 
-- <a href="https://www.emailjs.com/" target="_blank"><img src="https://avatars.githubusercontent.com/u/17705215?s=200&v=4" width="auto" height="20" alt="EmailJS" /></a>&emsp;<span><strong>EmailJS</strong> — Contact form integration with EmailJS
+- <a href="https://www.emailjs.com/" target="_blank"><img src="/my-portfolio/public/icons/emailjs_logo.jpeg" width="auto" height="20" alt="EmailJS" /></a>&emsp;<span><strong>EmailJS</strong> — Contact form integration with EmailJS
 
 - <a href="https://github.com/marsidev/react-turnstile" target="_blank"><img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/Cloudflare-Dark.svg" width="auto" height="20" alt="React Turnstile" /></a>&emsp;<span><strong>React Turnstile</strong> — Cloudflare Turnstile for spam protection
 
@@ -103,6 +107,6 @@ This project is licensed under the MIT License - see the [LICENSE](https://opens
 
 ## Credits
 
-[ChatGPT](https://chatgpt.openai.com)
-[Portfolio Concept UI/Design - Behance LINK](https://www.behance.net/gallery/142207047/Portfolio-Concept-#)
+[ChatGPT](https://chatgpt.openai.com)\
+[Portfolio Concept UI/Design - Behance LINK](https://www.behance.net/gallery/142207047/Portfolio-Concept-#)\
 [Portfolio Concept UI/Design - Figma LINK](https://www.figma.com/design/B4tWUAi7mBTWZdR0wWB9Oi/Portfolio-for-Developers?node-id=203-982&p=f)
