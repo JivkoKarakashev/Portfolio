@@ -4,7 +4,7 @@
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Framer Motion](https://img.shields.io/badge/Framer%20Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
-![Zustand](https://img.shields.io/badge/Zustand-181717?style=for-the-badge&logo=react&logoColor=white)
+![Zustand](https://img.shields.io/badge/zustand-602c3c?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAA8FBMVEVHcExXQzpKQDlFV16lpqyGh4tPPTdWT0weHRU7LRZGQzmxYjlaTkZsbmywVyxtXDSFhISXm6WWpcaytb6bm56gprY0LiiXmp2prLamsMa0XS42MSxkTUVDSkuyYzGihXdDV2GprbmedVxaRD1kTUWUdGFGOCN4a2OfpbI0SFFAMSddTkbCc0dWQiGFRypXQyJUQCBcTTWviDVXQyJcUDjlqCWxjkG+hBTiohtURD6lr8lORTtDVVZmPyxwSipaRSJDOzaWpsyYqMyYqM2dq8tPOjBERTs6QUKTcCeKaCJvViZdSDK4iSngoiDvqx7KkRuGEi1hAAAAOXRSTlMApZ78cB8hCAMQO/j/FOH4KlT1wFfJTjaY6SxtVexFn3Tn2sN6d671mVuJ+/PPN9CT6TfpS4C9jJaVLRihAAAAi0lEQVQIHXXBxRKCUAAF0Es/QMDubsVuGrv1///GBQ4bx3PwgwC8gFCRohs8QrQV0ZtKOZ9JcgBmU8MwqFa9kjNTUWB58f2jPOjU9juTBTbPq+vIar972MZjwPr1uDvqCFw2wQpQVm/t7Oo9gAgAFtrtZNtMFQFp7nkWU5IQECfjYbuQFvBFRJHgjw9L0A80UmaGpAAAAABJRU5ErkJggg==)
 ![EmailJS](https://img.shields.io/badge/EmailJS-0D92F4?style=for-the-badge&logo=gmail&logoColor=white)
 ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
 ![Cloudflare Turnstile](https://img.shields.io/badge/Turnstile-EB5424?style=for-the-badge&logo=cloudflare&logoColor=white)
@@ -33,7 +33,7 @@ The site is designed to be lightweight, responsive, and animated with **Framer M
 
 - <a href="https://motion.dev/" target="_blank"><img src="https://private-user-images.githubusercontent.com/7850794/444000081-00d6d1c3-72c4-4c2f-a664-69da13182ffc.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTY3MjcwODMsIm5iZiI6MTc1NjcyNjc4MywicGF0aCI6Ii83ODUwNzk0LzQ0NDAwMDA4MS0wMGQ2ZDFjMy03MmM0LTRjMmYtYTY2NC02OWRhMTMxODJmZmMucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI1MDkwMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNTA5MDFUMTEzOTQzWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9OTJjYmQ1N2U4NDI0ZGY0Zjc5Yzg3YWVlOGRiYzc4OTAxNjNkMDJiNzIyMmRhMTVmYzQ5OTc0YjQwODAyMWE4MCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.Rj0WTTagibY7O1wI6mcBzK2yRP4MQvA6efOCK3Fc8KY" width="auto" height="20" alt="Motion for React" /></a>&emsp;<span><strong>Framer Motion</strong> — Modern animations and page transitions</span>
 
-- <a href="https://zustand-demo.pmnd.rs/" target="_blank"><img src="https://github.com/pmndrs/zustand/raw/main/docs/bear.jpg" width="auto" height="20" alt="Zustand" /></a>&emsp;<span><strong>Zustand</strong> — Simple and scalable state management
+- <a href="https://zustand-demo.pmnd.rs/" target="_blank">🐻</a>&emsp;<span><strong>Zustand</strong> — Simple and scalable state management
 
 - <a href="https://react-tooltip.com/" target="_blank"><img src="/my-portfolio/public/icons/tooltip_1.svg" width="auto" height="20" alt="React Tooltip" /></a>&emsp;<span><strong>React Tooltip</strong> — Accessible tooltips for better UX
 
@@ -104,4 +104,5 @@ This project is licensed under the MIT License - see the [LICENSE](https://opens
 ## Credits
 
 [ChatGPT](https://chatgpt.openai.com)
-[Portfolio Concept UI/Design](https://www.behance.net/gallery/142207047/Portfolio-Concept-#)(https://www.figma.com/design/B4tWUAi7mBTWZdR0wWB9Oi/Portfolio-for-Developers?node-id=203-982&p=f)
+[Portfolio Concept UI/Design - Behance LINK](https://www.behance.net/gallery/142207047/Portfolio-Concept-#)
+[Portfolio Concept UI/Design - Figma LINK](https://www.figma.com/design/B4tWUAi7mBTWZdR0wWB9Oi/Portfolio-for-Developers?node-id=203-982&p=f)
