@@ -85,13 +85,13 @@ The site is designed to be lightweight, responsive, and animated with **Framer M
   cd my-portfolio
   ```
 - **Install Dependencies:**
-  - Navigate to the 'root' directory of the project >my-portfolio.
-    - In the 'root' directory >my-portfolio., install dependencies by running:
+  - Navigate to the 'root' directory *my-portfolio* of the project.
+    - In the 'root' directory *my-portfolio*, install dependencies by running:
     ```bash
     npm install
     ```
 - **Start development Server:**
-    - In the 'root' directory >my-portfolio. run:
+    - In the 'root' directory *my-portfolio* run:
     ```bash
 	node app.js
 	```
