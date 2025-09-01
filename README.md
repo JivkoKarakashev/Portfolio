@@ -80,18 +80,18 @@ The site is designed to be lightweight, responsive, and animated with **Framer M
   ```bash
   git clone https://github.com/JivkoKarakashev/Portfolio.git
   ```
-  - Navigate to the root folder of the project:
+  - Navigate to the 'root' folder of the project:
   ```bash
   cd my-portfolio
   ```
 - **Install Dependencies:**
-  - Navigate to the root directory of the project > my-portfolio.
-    - In the 'root' directory, install dependencies by running:
+  - Navigate to the 'root' directory of the project >my-portfolio.
+    - In the 'root' directory >my-portfolio., install dependencies by running:
     ```bash
     npm install
     ```
 - **Start development Server:**
-    - In the 'root' directory run:
+    - In the 'root' directory >my-portfolio. run:
     ```bash
 	node app.js
 	```
