@@ -25,4 +25,4 @@ The site is designed to be lightweight, responsive, and animated with **Framer M
 - [Credits](#credits)
 
 ## Tech Stack
-- ![](https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/React-Dark.svg)![](https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/Vite-Dark.svg) **React + Vite** — Fast frontend build tool and framework
+- **<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/React-Dark.svg" width="auto" height="20" alt="React" display="inline-block" /><img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/Vite-Dark.svg" width="auto" height="20" alt="Vite" display="inline-block" /> React + Vite** — Fast frontend build tool and framework
