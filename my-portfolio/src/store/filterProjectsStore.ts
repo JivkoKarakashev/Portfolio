@@ -2,7 +2,7 @@ import { create, type StateCreator } from "zustand";
 import { devtools } from "zustand/middleware";
 import type { IconName } from "../components/svg-icon-provider/svg-icon-provider.tsx";
 
-type FilterName = string | 'all' | 'react' | 'angular' | 'javascript' | 'typescript' | 'html' | 'css';
+type FilterName = string | 'all' | 'react' | 'angular' | 'expressjs' | 'javascript' | 'typescript' | 'html' | 'css';
 type FilterState = 'collapse' | 'expand';
 interface Project {
     _id: string,
@@ -30,6 +30,7 @@ const filterStoreInit: Record<FilterName, boolean> = {
     all: true,
     react: false,
     angular: false,
+    expressjs: false,
     javascript: false,
     typescript: false,
     html: false,
@@ -78,6 +79,21 @@ const store: StateCreator<FilterProjectsStore> = (set, get) => ({
             icon: 'react',
             desc: 'Portfolio (this App) Single Page Application (SPA) developed with React.',
             link: '/',
+            get _id() {
+                return this.title + this.icon
+            },
+            get key() {
+                return this.title.join('-');
+            }
+        },
+        {
+            techStack: ['all', 'expressjs', 'typescript'],
+            show: true,
+            title: ['Project 4', '// _turnstile-integration'],
+            img: 'https://cdn-bucket.jivkokarakashev.work/file/jivko-portfolio/public/images/projects/project4.webp',
+            icon: 'expressjs',
+            desc: 'Example backend validation setup for Cloudflare Turnstile developed with Express.',
+            link: 'https://portfolio.jivkokarakashev.dev/contact-me/mail-me',
             get _id() {
                 return this.title + this.icon
             },

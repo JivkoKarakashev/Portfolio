@@ -49,6 +49,13 @@ const ProjectsFilterExpand = () => {
                         </label>
                     </li>
                     <li className={style['row']}>
+                        <input id="expressjs" name="expressjs" type="checkbox" checked={filterName.expressjs} onChange={(e) => onInputChange(e)} />
+                        <label htmlFor="expressjs" className={style['name']}>
+                            <span className={`${style["checkbox-icon"]} ${filterName.expressjs ? style["checked"] : style["unchecked"]}`} />
+                            <SvgIconProvider iconName="expressjs" textContent="Express"></SvgIconProvider>
+                        </label>
+                    </li>
+                    <li className={style['row']}>
                         <input id="javascript" name="javascript" type="checkbox" checked={filterName.javascript} onChange={(e) => onInputChange(e)} />
                         <label htmlFor="javascript" className={style['name']}>
                             <span className={`${style["checkbox-icon"]} ${filterName.javascript ? style["checked"] : style["unchecked"]}`} />
