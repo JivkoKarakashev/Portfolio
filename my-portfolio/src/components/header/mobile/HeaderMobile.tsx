@@ -2,12 +2,11 @@ import { type ReactElement, useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import style from "./HeaderMobile.module.css";
+
 import { MobileNavMenuStatesContext } from "../../../context/MobileNavMenu.tsx";
-import { useNavLinkState } from "../../../custom-hooks/useNavLinkState.tsx";
 
 const HeaderMobile = (): ReactElement => {
 
-    const { toggleActive } = useNavLinkState();
     const { menuState, setMenuState } = useContext(MobileNavMenuStatesContext);
     const navigate = useNavigate();
 
@@ -22,7 +21,7 @@ const HeaderMobile = (): ReactElement => {
 
     return (
         <header className={style["mobile"]}>
-            <NavLink to='/' onClick={toggleActive}>
+            <NavLink to='/'>
                 <span className={`${style["logo"]} ${style["link"]}`}>jivko&#45;karakashev</span>
             </NavLink>
             <div className={style["menu-icon"]} onClick={toggleMenu}>

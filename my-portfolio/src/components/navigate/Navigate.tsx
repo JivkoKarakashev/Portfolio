@@ -1,17 +1,12 @@
 import { useContext, type JSX } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 
 import style from "./navigate.module.css";
 
-import { navigatePageVariants } from "../../animations/navigatePage.tsx";
 import { MobileNavMenuStatesContext } from "../../context/MobileNavMenu.tsx";
-import { useNavLinkState } from "../../custom-hooks/useNavLinkState.tsx";
-// import { DesktopNavLinksStatesContext } from "../../context/DesktopNavLinks.tsx";
 
 const Navigate = (): boolean | JSX.Element => {
     const { setMenuState } = useContext(MobileNavMenuStatesContext);
-    const { toggleActive } = useNavLinkState();
     const navigate = useNavigate();
 
     const onClose = (): void => {
@@ -23,7 +18,6 @@ const Navigate = (): boolean | JSX.Element => {
         const activetedLink = e.currentTarget.textContent || '';
         // console.log(activetedLink);
         setMenuState('closed');
-        toggleActive(e);
         switch (activetedLink) {
             case 'jivko-karakashev': {
                 navigate('/');
@@ -49,12 +43,7 @@ const Navigate = (): boolean | JSX.Element => {
     };
 
     return (
-        <motion.nav
-            variants={navigatePageVariants}
-            initial="initial"
-            animate="final"
-            exit="exit"
-            className={style["navbar"]}>
+        <nav className={style["navbar"]}>
             <ul>
                 <li className={`${style["row"]} ${style["logo-wrapper"]}`}>
                     <ul>
@@ -80,7 +69,7 @@ const Navigate = (): boolean | JSX.Element => {
                     <span onClick={(e) => onNavigate(e)}>&#95;contact&#45;me</span>
                 </li>
             </ul>
-        </motion.nav>
+        </nav>
     );
 };
 

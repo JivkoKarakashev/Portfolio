@@ -1,31 +1,30 @@
-import { type ReactElement, useContext } from "react";
+import { type ReactElement } from "react";
 import { NavLink } from "react-router-dom";
 
 import style from "./HeaderDesktop.module.css";
-import { DesktopNavLinksStatesContext } from "../../../context/DesktopNavLinks.tsx";
-import { useNavLinkState } from "../../../custom-hooks/useNavLinkState.tsx";
+
+import { useTransitionStore } from "../../../store/pageTransitionStore.ts";
 
 const HeaderDesktop = (): ReactElement => {
 
-    const { navLinksState } = useContext(DesktopNavLinksStatesContext);
-    const { toggleActive } = useNavLinkState();
+    const { displayLocation } = useTransitionStore();
 
     return (
         <header className={style["desktop"]}>
             <div className={style["left-wrapper"]}>
                 <section className={style["logo"]}>
-                    <NavLink to="/" onClick={(e) => toggleActive(e)}>jivko&#45;karakashev</NavLink>
+                    <NavLink to="/">jivko&#45;karakashev</NavLink>
                 </section>
                 <nav className={style["navbar"]}>
                     <ul>
-                        <li className={navLinksState._hello === 'active' ? style['active'] : undefined}>
-                            <NavLink to="/" onClick={(e) => toggleActive(e)}>&#95;hello</NavLink>
+                        <li className={displayLocation.endsWith('/') ? style['active'] : undefined}>
+                            <NavLink to="/">&#95;hello</NavLink>
                         </li>
-                        <li className={navLinksState['_about-me'] === 'active' ? style['active'] : undefined}>
-                            <NavLink to="/about-me" onClick={(e) => toggleActive(e)}>&#95;about&#45;me</NavLink>
+                        <li className={displayLocation.endsWith('/about-me') ? style['active'] : undefined}>
+                            <NavLink to="/about-me">&#95;about&#45;me</NavLink>
                         </li>
-                        <li className={navLinksState['_projects'] === 'active' ? style['active'] : undefined}>
-                            <NavLink to="/projects" onClick={(e) => toggleActive(e)}>&#95;projects</NavLink>
+                        <li className={displayLocation.endsWith('/projects') ? style['active'] : undefined}>
+                            <NavLink to="/projects">&#95;projects</NavLink>
                         </li>
                     </ul>
                 </nav>
@@ -34,8 +33,8 @@ const HeaderDesktop = (): ReactElement => {
             <div className={style["right-wrapper"]}>
                 <nav className={style["navbar"]}>
                     <ul>
-                        <li className={navLinksState['_contact-me'] === 'active' ? style['active'] : undefined}>
-                            <NavLink to="/contact-me" onClick={(e) => toggleActive(e)}>&#95;contact&#45;me</NavLink>
+                        <li className={displayLocation.endsWith('/contact-me') ? style['active'] : undefined}>
+                            <NavLink to="/contact-me">&#95;contact&#45;me</NavLink>
                         </li>
                     </ul>
                 </nav>

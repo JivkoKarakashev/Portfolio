@@ -1,12 +1,15 @@
+import { useContext } from "react";
 import { BrowserRouter } from "react-router-dom";
 
+import { PageTransitionOverlay } from "./components/page-transition-overlay/pageTransitionOverlay.tsx";
 import RoutesWithAnimation from "./components/router/RoutesWithAnimation.tsx";
 import { HeaderMobile } from "./components/header/mobile/HeaderMobile.tsx";
 import { HeaderDesktop } from "./components/header/desktop/HeaderDesktop.tsx";
 import { FooterMobile } from "./components/footer/mobile/FooterMobile.tsx";
 import { FooterDesktop } from "./components/footer/desktop/FooterDesktop.tsx";
-import { useContext } from "react";
 import { ViewModeStateContext } from "./context/ViewMode.tsx";
+
+import styles from './App.module.css';
 
 function App() {
 
@@ -18,7 +21,10 @@ function App() {
         <BrowserRouter>
           {viewModeState === 'mobile' && <HeaderMobile />}
           {viewModeState === 'desktop' && <HeaderDesktop />}
-          <RoutesWithAnimation />
+          <div className={styles['page-content-wrapper']}>
+            <PageTransitionOverlay />
+            <RoutesWithAnimation />
+          </div>
           {viewModeState === 'mobile' && <FooterMobile />}
           {viewModeState === 'desktop' && <FooterDesktop />}
         </BrowserRouter>
@@ -27,4 +33,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

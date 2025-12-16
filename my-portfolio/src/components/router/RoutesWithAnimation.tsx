@@ -2,11 +2,10 @@ import { useContext } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
-// import Home from "../home/Home.tsx";
 import Navigate from "../navigate/Navigate.tsx";
-import AnimatedHome from "../home/Home.tsx";
-import AnimatedAboutMe from "../about-me/About-me.tsx";
-import AnimatedContactMe from "../contact-me/Contact-me.tsx";
+import Home from "../home/Home.tsx";
+import AboutMe from "../about-me/About-me.tsx";
+import ContactMe from "../contact-me/Contact-me.tsx";
 import { Bio } from "../about-me/personal-info/bio/Bio.tsx";
 import { LocationPathStateContextProvider } from "../../context/LocationPath.tsx";
 import { Interests } from "../about-me/personal-info/interests/Interests.tsx";
@@ -21,10 +20,12 @@ import { ThankYou } from "../contact-me/thank-you/Thank-you.tsx";
 import { ViewModeStateContext } from "../../context/ViewMode.tsx";
 import { MailMeMobile } from "../contact-me/contacts/mail-me/mobile/Mail-me-mobile.tsx";
 import { MailMeDesktop } from "../contact-me/contacts/mail-me/desktop/Mail-me-desktop.tsx";
-import { AnimatedProjects } from "../projects/Projects.tsx";
+import { Projects } from "../projects/Projects.tsx";
+import { useTransitionStore } from "../../store/pageTransitionStore.ts";
 
 const RoutesWithAnimation = () => {
     const location = useLocation();
+    const { displayLocation } = useTransitionStore();
     // console.log(location);
     const { viewModeState } = useContext(ViewModeStateContext);
     const topLevelKey = '/'.concat(location.pathname.split('/')[1]);
@@ -32,11 +33,11 @@ const RoutesWithAnimation = () => {
 
     return (
         <LocationPathStateContextProvider>
-            <AnimatePresence mode="wait" initial={false}>
-                <Routes location={location} key={topLevelKey}>
-                    <Route path="/" element={<AnimatedHome />} />
+            <AnimatePresence mode='wait' initial={false}>
+                <Routes location={{ ...location, pathname: displayLocation }} key={topLevelKey}>
+                    <Route path="/" element={<Home />} />
                     <Route path="/navigate" element={<Navigate />} />
-                    <Route path="/about-me" element={<AnimatedAboutMe />}>
+                    <Route path="/about-me" element={<AboutMe />}>
                         <Route path="bio" element={<Bio />} />
                         <Route path="interests" element={<Interests />} />
                         <Route path="education/software-engineering" element={<SoftwareEngineering />} />
@@ -47,8 +48,8 @@ const RoutesWithAnimation = () => {
                         <Route path="hobbies/movies" element={<Movies />} />
                         <Route path="hobbies/conversations" element={<Conversations />} />
                     </Route>
-                    <Route path="/projects" element={<AnimatedProjects />} />
-                    <Route path="/contact-me" element={<AnimatedContactMe />} >
+                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/contact-me" element={<ContactMe />} >
                         {viewModeState === 'mobile' && <Route path="mail-me" element={<MailMeMobile />} />}
                         {viewModeState === 'desktop' && <Route path="mail-me" element={<MailMeDesktop />} />}
                         <Route path="thank-you" element={<ThankYou />} />

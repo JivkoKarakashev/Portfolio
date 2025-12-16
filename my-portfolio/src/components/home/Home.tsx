@@ -1,40 +1,9 @@
-import { useContext, type JSX } from "react";
+import type { ReactElement } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 import style from "./Home.module.css";
-import { otherPagesMobileVariants, otherPagesDesktopVariants } from "../../animations/otherPages.tsx";
-import { ViewModeStateContext } from "../../context/ViewMode.tsx";
 
-const AnimatedHome = () => {
-    const { viewModeState } = useContext(ViewModeStateContext);
-
-    if (viewModeState === 'mobile') {
-        return (
-            <motion.div className={style["animation-wrapper"]}
-                variants={otherPagesMobileVariants}
-                initial="initial"
-                animate="final"
-                exit="exit"
-            >
-                <Home />
-            </motion.div>
-        );
-    } else if (viewModeState === 'desktop') {
-        return (
-            <motion.div className={style["animation-wrapper"]}
-                variants={otherPagesDesktopVariants}
-                initial="initial"
-                animate="final"
-                exit="exit"
-            >
-                <Home />
-            </motion.div>
-        );
-    }
-};
-
-const Home = (): JSX.Element => {
+const Home = (): ReactElement => {
     return (
         <main className={style["content"]}>
             <div className={style["left-wrapper"]}>
@@ -74,7 +43,7 @@ const Home = (): JSX.Element => {
                 </div>
             </section>
         </main>
-    )
-}
+    );
+};
 
-export default AnimatedHome
+export default Home;
